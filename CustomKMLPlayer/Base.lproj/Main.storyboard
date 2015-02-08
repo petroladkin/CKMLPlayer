@@ -283,9 +283,11 @@
                     <connections>
                         <outlet property="controlsView" destination="Ew2-L8-eEA" id="Swf-G6-Gv3"/>
                         <outlet property="durationLabel" destination="cnF-cR-w6j" id="fyw-mi-xZN"/>
+                        <outlet property="nextButton" destination="kmn-mF-z2m" id="wmD-CF-gOf"/>
                         <outlet property="pauseButton" destination="Lab-AQ-dQA" id="ePw-u9-Hxp"/>
                         <outlet property="playButton" destination="1xb-87-qg5" id="04n-We-o6b"/>
                         <outlet property="positionLabel" destination="6E1-CP-Jee" id="kiN-68-5DV"/>
+                        <outlet property="prevButton" destination="mP8-sH-oPH" id="8nt-HX-El6"/>
                         <outlet property="progressSlider" destination="9sv-42-Z6g" id="6ta-pf-O8y"/>
                         <outlet property="tapView" destination="QJJ-02-VEV" id="3Kc-iD-19D"/>
                     </connections>

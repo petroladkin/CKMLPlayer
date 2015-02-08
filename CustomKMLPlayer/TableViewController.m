@@ -153,7 +153,7 @@
             NSMutableArray* arr = [NSMutableArray array];
             
             for (TableItem* item in self.content) {
-                if (item.type == ETableItemTypeFile && [[item.info pathExtension] isEqualToString:@"mp4"]) {
+                if (item.type == ETableItemTypeFile && ([[item.info pathExtension] isEqualToString:@"mp4"] || [[item.info pathExtension] isEqualToString:@"m4v"])) {
                     WebDavItem* wdi = [WebDavItem itemWithName:item.name url:item.info andIsFolder:NO];
                     [arr addObject:wdi];
                 }

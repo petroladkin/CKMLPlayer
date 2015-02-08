@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UISlider *progressSlider;
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
 @property (weak, nonatomic) IBOutlet UIButton *pauseButton;
+@property (weak, nonatomic) IBOutlet UIButton *prevButton;
+@property (weak, nonatomic) IBOutlet UIButton *nextButton;
 @property (weak, nonatomic) IBOutlet UILabel *positionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *durationLabel;
 
@@ -58,6 +60,8 @@
                                                  name:MPMoviePlayerLoadStateDidChangeNotification
                                                object:nil];
 
+    [self.tapView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureRecognizer:)]];
+
     self.controlsView.layer.cornerRadius = 8;
     
     self.dontUpdateSlider = NO;
@@ -71,7 +75,7 @@
         lwidth = self.view.frame.size.height;
         lheight = self.view.frame.size.width;
     }
-    if (self.interfaceOrientation == UIInterfaceOrientationLandscapeLeft || self.interfaceOrientation == UIInterfaceOrientationLandscapeRight) {
+    if ([self isLandscape:self.interfaceOrientation]) {
         [self.player.view setFrame:CGRectMake(0, 0, lwidth, lheight)];
     } else {
         [self.player.view setFrame:CGRectMake(0, 0, lheight, lwidth)];
@@ -80,8 +84,6 @@
 
     [self playCurrentFile];
     
-    UITapGestureRecognizer *singleFingerTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
-    [self.tapView addGestureRecognizer:singleFingerTap];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -91,7 +93,7 @@
 }
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-    if (toInterfaceOrientation != self.interfaceOrientation) {
+    if ([self isLandscape:toInterfaceOrientation] != [self isLandscape:self.interfaceOrientation]) {
         [UIView animateWithDuration:duration animations:^(){
             [self.player.view setFrame:CGRectMake(0, 0, self.player.view.bounds.size.height, self.player.view.bounds.size.width)];
         }];
@@ -105,17 +107,17 @@
 
 #pragma mark - help methods
 
+- (BOOL)isLandscape:(UIInterfaceOrientation)interfaceOrientation {
+    return interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight;
+}
+
 - (void)playCurrentFile {
     self.idleTimeInterval = 0.0;
     self.progressSlider.value = 0.0;
-    
     self.positionLabel.text = @"";
     self.durationLabel.text = @"";
+    [self disableButtons];
     
-//    self.playButton.hidden = YES;
-//    self.pauseButton.hidden = NO;
-//    self.pauseButton.enabled = NO;
-
     WebDavItem* wdi = [self.files objectAtIndex:self.currentFileIndex];
     
     self.navigationItem.title = wdi.name;
@@ -136,8 +138,42 @@
     return ret;
 }
 
+- (BOOL)isShowingUI {
+    return !self.navigationController.navigationBarHidden;
+}
 
-#pragma mark - actions
+- (void)showUI {
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
+    [UIView animateWithDuration:0.4 animations:^(){
+        self.controlsView.alpha = 1.0f;
+    }];
+}
+
+- (void)hideUI {
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
+    [UIView animateWithDuration:0.4 animations:^(){
+        self.controlsView.alpha = 0.0f;
+    }];
+}
+
+- (void)enableButtons {
+    self.prevButton.enabled = YES;
+    self.nextButton.enabled = YES;
+    self.playButton.enabled = YES;
+    self.pauseButton.enabled = YES;
+}
+
+- (void)disableButtons {
+    self.prevButton.enabled = NO;
+    self.nextButton.enabled = NO;
+    self.playButton.enabled = NO;
+    self.pauseButton.enabled = NO;
+}
+
+
+#pragma mark - notifications
 
 - (void)moviePlayerPlaybackDidFinishNotification:(NSNotification*)notif {
     [self actionNext:nil];
@@ -146,44 +182,38 @@
 - (void)moviePlayerLoadStateDidChangeNotification:(NSNotification*)notif {
     if ((self.player.loadState & MPMovieLoadStatePlaythroughOK) == MPMovieLoadStatePlaythroughOK) {
         self.playerTimer = [NSTimer scheduledTimerWithTimeInterval:0.5f target:self selector:@selector(playerTimerUpdate:) userInfo:nil repeats:YES];
-//        self.pauseButton.enabled = YES;
+        [self enableButtons];
     }
 }
 
-- (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
+- (void)tapGestureRecognizer:(UITapGestureRecognizer *)recognizer {
     self.idleTimeInterval = 0.0;
-    if (self.navigationController.navigationBarHidden) {
-        [self.navigationController setNavigationBarHidden:NO animated:YES];
-        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
-        [UIView animateWithDuration:0.4 animations:^(){
-            self.controlsView.alpha = 1.0f;
-        }];
+    if ([self isShowingUI]) {
+        [self hideUI];
     } else {
-        [self.navigationController setNavigationBarHidden:YES animated:YES];
-        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
-        [UIView animateWithDuration:0.4 animations:^(){
-            self.controlsView.alpha = 0.0f;
-        }];
+        [self showUI];
     }
 }
 
 - (void)playerTimerUpdate:(id)userInfo {
-    if (!self.dontUpdateSlider) {
-        self.progressSlider.value = self.player.currentPlaybackTime / self.player.duration;
-    }
-
-    self.positionLabel.text = [self timeToString:self.player.currentPlaybackTime];
-    self.durationLabel.text = [NSString stringWithFormat:@"-%@", [self timeToString:self.player.duration - self.player.currentPlaybackTime]];
-
-    self.idleTimeInterval += 0.5;
-    if (self.idleTimeInterval > 4) {
-        [self.navigationController setNavigationBarHidden:YES animated:YES];
-        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
-        [UIView animateWithDuration:0.4 animations:^(){
-            self.controlsView.alpha = 0.0f;
-        }];
+    if ([self isShowingUI]) {
+        if (!self.dontUpdateSlider) {
+            self.progressSlider.value = self.player.currentPlaybackTime / self.player.duration;
+        }
+        
+        self.positionLabel.text = [self timeToString:self.player.currentPlaybackTime];
+        self.durationLabel.text = [NSString stringWithFormat:@"-%@", [self timeToString:self.player.duration - self.player.currentPlaybackTime]];
+        
+        self.idleTimeInterval += 0.5;
+        if (self.idleTimeInterval > 4) {
+            self.idleTimeInterval = 0.0;
+            [self hideUI];
+        }
     }
 }
+
+
+#pragma mark - help methods
 
 - (IBAction)actionPrev:(UIButton *)sender {
     if (self.currentFileIndex == 0) {
