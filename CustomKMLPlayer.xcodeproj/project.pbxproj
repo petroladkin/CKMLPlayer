@@ -1,0 +1,605 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9A45570B1A7A76AD00A67A95 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A45570A1A7A76AD00A67A95 /* PlayerViewController.m */; };
+		9A45570F1A7B8C5100A67A95 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A45570E1A7B8C5100A67A95 /* MediaPlayer.framework */; };
+		9A4557121A7BCCD100A67A95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A4557101A7BCCD100A67A95 /* Main.storyboard */; };
+		9AA96F9F1A728DDD005B90E1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA96F9E1A728DDD005B90E1 /* main.m */; };
+		9AA96FA21A728DDD005B90E1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA96FA11A728DDD005B90E1 /* AppDelegate.m */; };
+		9AA96FA51A728DDD005B90E1 /* CustomKMLPlayer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9AA96FA31A728DDD005B90E1 /* CustomKMLPlayer.xcdatamodeld */; };
+		9AA96FAD1A728DDD005B90E1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AA96FAC1A728DDD005B90E1 /* Images.xcassets */; };
+		9AA96FBC1A728DDD005B90E1 /* CustomKMLPlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA96FBB1A728DDD005B90E1 /* CustomKMLPlayerTests.m */; };
+		9AA96FC71A729069005B90E1 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA96FC61A729069005B90E1 /* TableViewController.m */; };
+		9AA96FCB1A72931D005B90E1 /* TableItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA96FCA1A72931D005B90E1 /* TableItem.m */; };
+		9AA96FCE1A7294C6005B90E1 /* DeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA96FCD1A7294C6005B90E1 /* DeviceManager.m */; };
+		9AA96FD11A7294D6005B90E1 /* WebDavManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA96FD01A7294D6005B90E1 /* WebDavManager.m */; };
+		9AA96FD61A766ACE005B90E1 /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA96FD51A766ACE005B90E1 /* AsyncUdpSocket.m */; };
+		9AACADF51A77D5B4009E518F /* GroupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AACADF41A77D5B4009E518F /* GroupTableViewCell.m */; };
+		9AACADF81A77D5C1009E518F /* ItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AACADF71A77D5C1009E518F /* ItemTableViewCell.m */; };
+		9AACAE191A77DA27009E518F /* LEOContentTypeConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AACADFB1A77DA27009E518F /* LEOContentTypeConvert.m */; };
+		9AACAE1A1A77DA27009E518F /* LEOWebDAVBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AACADFD1A77DA27009E518F /* LEOWebDAVBaseRequest.m */; };
+		9AACAE1B1A77DA27009E518F /* LEOWebDAVClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AACADFF1A77DA27009E518F /* LEOWebDAVClient.m */; };
+		9AACAE1C1A77DA27009E518F /* LEOWebDAVCopyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AACAE011A77DA27009E518F /* LEOWebDAVCopyRequest.m */; };
+		9AACAE1D1A77DA27009E518F /* LEOWebDAVDeleteRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AACAE041A77DA27009E518F /* LEOWebDAVDeleteRequest.m */; };
+		9AACAE1E1A77DA27009E518F /* LEOWebDAVDownloadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AACAE061A77DA27009E518F /* LEOWebDAVDownloadRequest.m */; };
+		9AACAE1F1A77DA27009E518F /* LEOWebDAVItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AACAE081A77DA27009E518F /* LEOWebDAVItem.m */; };
+		9AACAE201A77DA27009E518F /* LEOWebDAVMakeCollectionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AACAE0A1A77DA27009E518F /* LEOWebDAVMakeCollectionRequest.m */; };
+		9AACAE211A77DA27009E518F /* LEOWebDAVMoveRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AACAE0C1A77DA27009E518F /* LEOWebDAVMoveRequest.m */; };
+		9AACAE221A77DA27009E518F /* LEOWebDAVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AACAE0E1A77DA27009E518F /* LEOWebDAVParser.m */; };
+		9AACAE231A77DA27009E518F /* LEOWebDAVPropertyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AACAE101A77DA27009E518F /* LEOWebDAVPropertyRequest.m */; };
+		9AACAE241A77DA27009E518F /* LEOWebDAVRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AACAE121A77DA27009E518F /* LEOWebDAVRequest.m */; };
+		9AACAE251A77DA27009E518F /* LEOWebDAVUploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AACAE141A77DA27009E518F /* LEOWebDAVUploadRequest.m */; };
+		9AACAE261A77DA27009E518F /* LEOWebDAVURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AACAE161A77DA27009E518F /* LEOWebDAVURL.m */; };
+		9AACAE271A77DA27009E518F /* LEOWebDAVUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AACAE181A77DA27009E518F /* LEOWebDAVUtility.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9AA96FB61A728DDD005B90E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9AA96F911A728DDD005B90E1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9AA96F981A728DDD005B90E1;
+			remoteInfo = CustomKMLPlayer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9A4557091A7A76AD00A67A95 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
+		9A45570A1A7A76AD00A67A95 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
+		9A45570E1A7B8C5100A67A95 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		9A4557111A7BCCD100A67A95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9AA96F991A728DDD005B90E1 /* CustomKMLPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomKMLPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9AA96F9D1A728DDD005B90E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9AA96F9E1A728DDD005B90E1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9AA96FA01A728DDD005B90E1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9AA96FA11A728DDD005B90E1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9AA96FA41A728DDD005B90E1 /* CustomKMLPlayer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CustomKMLPlayer.xcdatamodel; sourceTree = "<group>"; };
+		9AA96FAC1A728DDD005B90E1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		9AA96FB51A728DDD005B90E1 /* CustomKMLPlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomKMLPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9AA96FBA1A728DDD005B90E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9AA96FBB1A728DDD005B90E1 /* CustomKMLPlayerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomKMLPlayerTests.m; sourceTree = "<group>"; };
+		9AA96FC51A729069005B90E1 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		9AA96FC61A729069005B90E1 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		9AA96FC91A72931D005B90E1 /* TableItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableItem.h; sourceTree = "<group>"; };
+		9AA96FCA1A72931D005B90E1 /* TableItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableItem.m; sourceTree = "<group>"; };
+		9AA96FCC1A7294C6005B90E1 /* DeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceManager.h; sourceTree = "<group>"; };
+		9AA96FCD1A7294C6005B90E1 /* DeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceManager.m; sourceTree = "<group>"; };
+		9AA96FCF1A7294D6005B90E1 /* WebDavManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebDavManager.h; sourceTree = "<group>"; };
+		9AA96FD01A7294D6005B90E1 /* WebDavManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebDavManager.m; sourceTree = "<group>"; };
+		9AA96FD41A766ACE005B90E1 /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncUdpSocket.h; sourceTree = "<group>"; };
+		9AA96FD51A766ACE005B90E1 /* AsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncUdpSocket.m; sourceTree = "<group>"; };
+		9AACADF31A77D5B4009E518F /* GroupTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupTableViewCell.h; sourceTree = "<group>"; };
+		9AACADF41A77D5B4009E518F /* GroupTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupTableViewCell.m; sourceTree = "<group>"; };
+		9AACADF61A77D5C1009E518F /* ItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemTableViewCell.h; sourceTree = "<group>"; };
+		9AACADF71A77D5C1009E518F /* ItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemTableViewCell.m; sourceTree = "<group>"; };
+		9AACADFA1A77DA27009E518F /* LEOContentTypeConvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEOContentTypeConvert.h; sourceTree = "<group>"; };
+		9AACADFB1A77DA27009E518F /* LEOContentTypeConvert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEOContentTypeConvert.m; sourceTree = "<group>"; };
+		9AACADFC1A77DA27009E518F /* LEOWebDAVBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEOWebDAVBaseRequest.h; sourceTree = "<group>"; };
+		9AACADFD1A77DA27009E518F /* LEOWebDAVBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEOWebDAVBaseRequest.m; sourceTree = "<group>"; };
+		9AACADFE1A77DA27009E518F /* LEOWebDAVClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEOWebDAVClient.h; sourceTree = "<group>"; };
+		9AACADFF1A77DA27009E518F /* LEOWebDAVClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEOWebDAVClient.m; sourceTree = "<group>"; };
+		9AACAE001A77DA27009E518F /* LEOWebDAVCopyRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEOWebDAVCopyRequest.h; sourceTree = "<group>"; };
+		9AACAE011A77DA27009E518F /* LEOWebDAVCopyRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEOWebDAVCopyRequest.m; sourceTree = "<group>"; };
+		9AACAE021A77DA27009E518F /* LEOWebDAVDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEOWebDAVDefines.h; sourceTree = "<group>"; };
+		9AACAE031A77DA27009E518F /* LEOWebDAVDeleteRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEOWebDAVDeleteRequest.h; sourceTree = "<group>"; };
+		9AACAE041A77DA27009E518F /* LEOWebDAVDeleteRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEOWebDAVDeleteRequest.m; sourceTree = "<group>"; };
+		9AACAE051A77DA27009E518F /* LEOWebDAVDownloadRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEOWebDAVDownloadRequest.h; sourceTree = "<group>"; };
+		9AACAE061A77DA27009E518F /* LEOWebDAVDownloadRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEOWebDAVDownloadRequest.m; sourceTree = "<group>"; };
+		9AACAE071A77DA27009E518F /* LEOWebDAVItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEOWebDAVItem.h; sourceTree = "<group>"; };
+		9AACAE081A77DA27009E518F /* LEOWebDAVItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEOWebDAVItem.m; sourceTree = "<group>"; };
+		9AACAE091A77DA27009E518F /* LEOWebDAVMakeCollectionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEOWebDAVMakeCollectionRequest.h; sourceTree = "<group>"; };
+		9AACAE0A1A77DA27009E518F /* LEOWebDAVMakeCollectionRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEOWebDAVMakeCollectionRequest.m; sourceTree = "<group>"; };
+		9AACAE0B1A77DA27009E518F /* LEOWebDAVMoveRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEOWebDAVMoveRequest.h; sourceTree = "<group>"; };
+		9AACAE0C1A77DA27009E518F /* LEOWebDAVMoveRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEOWebDAVMoveRequest.m; sourceTree = "<group>"; };
+		9AACAE0D1A77DA27009E518F /* LEOWebDAVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEOWebDAVParser.h; sourceTree = "<group>"; };
+		9AACAE0E1A77DA27009E518F /* LEOWebDAVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEOWebDAVParser.m; sourceTree = "<group>"; };
+		9AACAE0F1A77DA27009E518F /* LEOWebDAVPropertyRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEOWebDAVPropertyRequest.h; sourceTree = "<group>"; };
+		9AACAE101A77DA27009E518F /* LEOWebDAVPropertyRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEOWebDAVPropertyRequest.m; sourceTree = "<group>"; };
+		9AACAE111A77DA27009E518F /* LEOWebDAVRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEOWebDAVRequest.h; sourceTree = "<group>"; };
+		9AACAE121A77DA27009E518F /* LEOWebDAVRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEOWebDAVRequest.m; sourceTree = "<group>"; };
+		9AACAE131A77DA27009E518F /* LEOWebDAVUploadRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEOWebDAVUploadRequest.h; sourceTree = "<group>"; };
+		9AACAE141A77DA27009E518F /* LEOWebDAVUploadRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEOWebDAVUploadRequest.m; sourceTree = "<group>"; };
+		9AACAE151A77DA27009E518F /* LEOWebDAVURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEOWebDAVURL.h; sourceTree = "<group>"; };
+		9AACAE161A77DA27009E518F /* LEOWebDAVURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEOWebDAVURL.m; sourceTree = "<group>"; };
+		9AACAE171A77DA27009E518F /* LEOWebDAVUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEOWebDAVUtility.h; sourceTree = "<group>"; };
+		9AACAE181A77DA27009E518F /* LEOWebDAVUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEOWebDAVUtility.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9AA96F961A728DDD005B90E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A45570F1A7B8C5100A67A95 /* MediaPlayer.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9AA96FB21A728DDD005B90E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9AA96F901A728DDD005B90E1 = {
+			isa = PBXGroup;
+			children = (
+				9A45570E1A7B8C5100A67A95 /* MediaPlayer.framework */,
+				9AA96F9B1A728DDD005B90E1 /* CustomKMLPlayer */,
+				9AA96FB81A728DDD005B90E1 /* CustomKMLPlayerTests */,
+				9AA96F9A1A728DDD005B90E1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9AA96F9A1A728DDD005B90E1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9AA96F991A728DDD005B90E1 /* CustomKMLPlayer.app */,
+				9AA96FB51A728DDD005B90E1 /* CustomKMLPlayerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9AA96F9B1A728DDD005B90E1 /* CustomKMLPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				9AA96FC81A7292F2005B90E1 /* Core */,
+				9AA96FA01A728DDD005B90E1 /* AppDelegate.h */,
+				9AA96FA11A728DDD005B90E1 /* AppDelegate.m */,
+				9AA96FC51A729069005B90E1 /* TableViewController.h */,
+				9AA96FC61A729069005B90E1 /* TableViewController.m */,
+				9AACADF31A77D5B4009E518F /* GroupTableViewCell.h */,
+				9AACADF41A77D5B4009E518F /* GroupTableViewCell.m */,
+				9AACADF61A77D5C1009E518F /* ItemTableViewCell.h */,
+				9AACADF71A77D5C1009E518F /* ItemTableViewCell.m */,
+				9A4557091A7A76AD00A67A95 /* PlayerViewController.h */,
+				9A45570A1A7A76AD00A67A95 /* PlayerViewController.m */,
+				9A4557101A7BCCD100A67A95 /* Main.storyboard */,
+				9AA96FAC1A728DDD005B90E1 /* Images.xcassets */,
+				9AA96FA31A728DDD005B90E1 /* CustomKMLPlayer.xcdatamodeld */,
+				9AA96F9C1A728DDD005B90E1 /* Supporting Files */,
+			);
+			path = CustomKMLPlayer;
+			sourceTree = "<group>";
+		};
+		9AA96F9C1A728DDD005B90E1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9AA96F9D1A728DDD005B90E1 /* Info.plist */,
+				9AA96F9E1A728DDD005B90E1 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9AA96FB81A728DDD005B90E1 /* CustomKMLPlayerTests */ = {
+			isa = PBXGroup;
+			children = (
+				9AA96FBB1A728DDD005B90E1 /* CustomKMLPlayerTests.m */,
+				9AA96FB91A728DDD005B90E1 /* Supporting Files */,
+			);
+			path = CustomKMLPlayerTests;
+			sourceTree = "<group>";
+		};
+		9AA96FB91A728DDD005B90E1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9AA96FBA1A728DDD005B90E1 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9AA96FC81A7292F2005B90E1 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				9AACADF91A77DA27009E518F /* LEOWebDAV */,
+				9AA96FD31A766ACE005B90E1 /* CocoaAsyncSocket */,
+				9AA96FC91A72931D005B90E1 /* TableItem.h */,
+				9AA96FCA1A72931D005B90E1 /* TableItem.m */,
+				9AA96FCC1A7294C6005B90E1 /* DeviceManager.h */,
+				9AA96FCD1A7294C6005B90E1 /* DeviceManager.m */,
+				9AA96FCF1A7294D6005B90E1 /* WebDavManager.h */,
+				9AA96FD01A7294D6005B90E1 /* WebDavManager.m */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		9AA96FD31A766ACE005B90E1 /* CocoaAsyncSocket */ = {
+			isa = PBXGroup;
+			children = (
+				9AA96FD41A766ACE005B90E1 /* AsyncUdpSocket.h */,
+				9AA96FD51A766ACE005B90E1 /* AsyncUdpSocket.m */,
+			);
+			path = CocoaAsyncSocket;
+			sourceTree = "<group>";
+		};
+		9AACADF91A77DA27009E518F /* LEOWebDAV */ = {
+			isa = PBXGroup;
+			children = (
+				9AACADFA1A77DA27009E518F /* LEOContentTypeConvert.h */,
+				9AACADFB1A77DA27009E518F /* LEOContentTypeConvert.m */,
+				9AACADFC1A77DA27009E518F /* LEOWebDAVBaseRequest.h */,
+				9AACADFD1A77DA27009E518F /* LEOWebDAVBaseRequest.m */,
+				9AACADFE1A77DA27009E518F /* LEOWebDAVClient.h */,
+				9AACADFF1A77DA27009E518F /* LEOWebDAVClient.m */,
+				9AACAE001A77DA27009E518F /* LEOWebDAVCopyRequest.h */,
+				9AACAE011A77DA27009E518F /* LEOWebDAVCopyRequest.m */,
+				9AACAE021A77DA27009E518F /* LEOWebDAVDefines.h */,
+				9AACAE031A77DA27009E518F /* LEOWebDAVDeleteRequest.h */,
+				9AACAE041A77DA27009E518F /* LEOWebDAVDeleteRequest.m */,
+				9AACAE051A77DA27009E518F /* LEOWebDAVDownloadRequest.h */,
+				9AACAE061A77DA27009E518F /* LEOWebDAVDownloadRequest.m */,
+				9AACAE071A77DA27009E518F /* LEOWebDAVItem.h */,
+				9AACAE081A77DA27009E518F /* LEOWebDAVItem.m */,
+				9AACAE091A77DA27009E518F /* LEOWebDAVMakeCollectionRequest.h */,
+				9AACAE0A1A77DA27009E518F /* LEOWebDAVMakeCollectionRequest.m */,
+				9AACAE0B1A77DA27009E518F /* LEOWebDAVMoveRequest.h */,
+				9AACAE0C1A77DA27009E518F /* LEOWebDAVMoveRequest.m */,
+				9AACAE0D1A77DA27009E518F /* LEOWebDAVParser.h */,
+				9AACAE0E1A77DA27009E518F /* LEOWebDAVParser.m */,
+				9AACAE0F1A77DA27009E518F /* LEOWebDAVPropertyRequest.h */,
+				9AACAE101A77DA27009E518F /* LEOWebDAVPropertyRequest.m */,
+				9AACAE111A77DA27009E518F /* LEOWebDAVRequest.h */,
+				9AACAE121A77DA27009E518F /* LEOWebDAVRequest.m */,
+				9AACAE131A77DA27009E518F /* LEOWebDAVUploadRequest.h */,
+				9AACAE141A77DA27009E518F /* LEOWebDAVUploadRequest.m */,
+				9AACAE151A77DA27009E518F /* LEOWebDAVURL.h */,
+				9AACAE161A77DA27009E518F /* LEOWebDAVURL.m */,
+				9AACAE171A77DA27009E518F /* LEOWebDAVUtility.h */,
+				9AACAE181A77DA27009E518F /* LEOWebDAVUtility.m */,
+			);
+			path = LEOWebDAV;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9AA96F981A728DDD005B90E1 /* CustomKMLPlayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9AA96FBF1A728DDE005B90E1 /* Build configuration list for PBXNativeTarget "CustomKMLPlayer" */;
+			buildPhases = (
+				9AA96F951A728DDD005B90E1 /* Sources */,
+				9AA96F961A728DDD005B90E1 /* Frameworks */,
+				9AA96F971A728DDD005B90E1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CustomKMLPlayer;
+			productName = CustomKMLPlayer;
+			productReference = 9AA96F991A728DDD005B90E1 /* CustomKMLPlayer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9AA96FB41A728DDD005B90E1 /* CustomKMLPlayerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9AA96FC21A728DDE005B90E1 /* Build configuration list for PBXNativeTarget "CustomKMLPlayerTests" */;
+			buildPhases = (
+				9AA96FB11A728DDD005B90E1 /* Sources */,
+				9AA96FB21A728DDD005B90E1 /* Frameworks */,
+				9AA96FB31A728DDD005B90E1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9AA96FB71A728DDD005B90E1 /* PBXTargetDependency */,
+			);
+			name = CustomKMLPlayerTests;
+			productName = CustomKMLPlayerTests;
+			productReference = 9AA96FB51A728DDD005B90E1 /* CustomKMLPlayerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9AA96F911A728DDD005B90E1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = PeLa;
+				TargetAttributes = {
+					9AA96F981A728DDD005B90E1 = {
+						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 444PP79Q49;
+					};
+					9AA96FB41A728DDD005B90E1 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 9AA96F981A728DDD005B90E1;
+					};
+				};
+			};
+			buildConfigurationList = 9AA96F941A728DDD005B90E1 /* Build configuration list for PBXProject "CustomKMLPlayer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9AA96F901A728DDD005B90E1;
+			productRefGroup = 9AA96F9A1A728DDD005B90E1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9AA96F981A728DDD005B90E1 /* CustomKMLPlayer */,
+				9AA96FB41A728DDD005B90E1 /* CustomKMLPlayerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9AA96F971A728DDD005B90E1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9AA96FAD1A728DDD005B90E1 /* Images.xcassets in Resources */,
+				9A4557121A7BCCD100A67A95 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9AA96FB31A728DDD005B90E1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9AA96F951A728DDD005B90E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9AA96FA51A728DDD005B90E1 /* CustomKMLPlayer.xcdatamodeld in Sources */,
+				9AA96FCE1A7294C6005B90E1 /* DeviceManager.m in Sources */,
+				9AACAE1A1A77DA27009E518F /* LEOWebDAVBaseRequest.m in Sources */,
+				9AACAE231A77DA27009E518F /* LEOWebDAVPropertyRequest.m in Sources */,
+				9AACADF81A77D5C1009E518F /* ItemTableViewCell.m in Sources */,
+				9A45570B1A7A76AD00A67A95 /* PlayerViewController.m in Sources */,
+				9AACAE261A77DA27009E518F /* LEOWebDAVURL.m in Sources */,
+				9AACAE1C1A77DA27009E518F /* LEOWebDAVCopyRequest.m in Sources */,
+				9AA96FD11A7294D6005B90E1 /* WebDavManager.m in Sources */,
+				9AACAE241A77DA27009E518F /* LEOWebDAVRequest.m in Sources */,
+				9AACADF51A77D5B4009E518F /* GroupTableViewCell.m in Sources */,
+				9AA96FD61A766ACE005B90E1 /* AsyncUdpSocket.m in Sources */,
+				9AACAE271A77DA27009E518F /* LEOWebDAVUtility.m in Sources */,
+				9AA96FA21A728DDD005B90E1 /* AppDelegate.m in Sources */,
+				9AA96F9F1A728DDD005B90E1 /* main.m in Sources */,
+				9AACAE1D1A77DA27009E518F /* LEOWebDAVDeleteRequest.m in Sources */,
+				9AACAE1F1A77DA27009E518F /* LEOWebDAVItem.m in Sources */,
+				9AACAE191A77DA27009E518F /* LEOContentTypeConvert.m in Sources */,
+				9AA96FCB1A72931D005B90E1 /* TableItem.m in Sources */,
+				9AACAE251A77DA27009E518F /* LEOWebDAVUploadRequest.m in Sources */,
+				9AACAE201A77DA27009E518F /* LEOWebDAVMakeCollectionRequest.m in Sources */,
+				9AA96FC71A729069005B90E1 /* TableViewController.m in Sources */,
+				9AACAE1B1A77DA27009E518F /* LEOWebDAVClient.m in Sources */,
+				9AACAE211A77DA27009E518F /* LEOWebDAVMoveRequest.m in Sources */,
+				9AACAE221A77DA27009E518F /* LEOWebDAVParser.m in Sources */,
+				9AACAE1E1A77DA27009E518F /* LEOWebDAVDownloadRequest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9AA96FB11A728DDD005B90E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9AA96FBC1A728DDD005B90E1 /* CustomKMLPlayerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9AA96FB71A728DDD005B90E1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9AA96F981A728DDD005B90E1 /* CustomKMLPlayer */;
+			targetProxy = 9AA96FB61A728DDD005B90E1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9A4557101A7BCCD100A67A95 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9A4557111A7BCCD100A67A95 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9AA96FBD1A728DDE005B90E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9AA96FBE1A728DDE005B90E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9AA96FC01A728DDE005B90E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = CustomKMLPlayer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9AA96FC11A728DDE005B90E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = CustomKMLPlayer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9AA96FC31A728DDE005B90E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CustomKMLPlayerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CustomKMLPlayer.app/CustomKMLPlayer";
+			};
+			name = Debug;
+		};
+		9AA96FC41A728DDE005B90E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CustomKMLPlayerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CustomKMLPlayer.app/CustomKMLPlayer";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9AA96F941A728DDD005B90E1 /* Build configuration list for PBXProject "CustomKMLPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9AA96FBD1A728DDE005B90E1 /* Debug */,
+				9AA96FBE1A728DDE005B90E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9AA96FBF1A728DDE005B90E1 /* Build configuration list for PBXNativeTarget "CustomKMLPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9AA96FC01A728DDE005B90E1 /* Debug */,
+				9AA96FC11A728DDE005B90E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9AA96FC21A728DDE005B90E1 /* Build configuration list for PBXNativeTarget "CustomKMLPlayerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9AA96FC31A728DDE005B90E1 /* Debug */,
+				9AA96FC41A728DDE005B90E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9AA96FA31A728DDD005B90E1 /* CustomKMLPlayer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9AA96FA41A728DDD005B90E1 /* CustomKMLPlayer.xcdatamodel */,
+			);
+			currentVersion = 9AA96FA41A728DDD005B90E1 /* CustomKMLPlayer.xcdatamodel */;
+			path = CustomKMLPlayer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 9AA96F911A728DDD005B90E1 /* Project object */;
+}
