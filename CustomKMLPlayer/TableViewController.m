@@ -192,6 +192,7 @@
 }
 
 - (void)webDavManager:(WebDavManager*)webDavManager request:(NSString*)request didFail:(NSError*)error {
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 

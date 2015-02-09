@@ -40,6 +40,7 @@
 
 @property (strong, nonatomic) AsyncUdpSocket* udpSocket;
 @property (strong, nonatomic) NSTimer* updateTimer;
+@property (assign, nonatomic) BOOL foundedServer;
 
 
 @end
@@ -84,7 +85,8 @@
     }
     
     [self updateTimer:nil];
-    self.updateTimer = [NSTimer scheduledTimerWithTimeInterval:10.0f target:self selector:@selector(updateTimer:) userInfo:nil repeats:YES];
+    self.foundedServer = YES;
+    self.updateTimer = [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(updateTimer:) userInfo:nil repeats:YES];
 }
 
 - (void)stop {
@@ -98,6 +100,11 @@
 #pragma mark - actions
 
 - (void)updateTimer:(id)obj {
+    if (!self.foundedServer) {
+        if (self.delegate != nil) {
+            [self.delegate deviceManager:self updateDeviceList:@[]];
+        }
+    }
     NSString* myIpAddress = [self getIPAddress];
 
     NSString* bcIpAddress = myIpAddress;
@@ -109,6 +116,7 @@
     NSString* message = [NSString stringWithFormat:@"wi-drivec=%@", myIpAddress];
     
     [self.udpSocket sendData:[message dataUsingEncoding:NSUTF8StringEncoding] toHost:bcIpAddress port:5190 withTimeout:-1 tag:0];
+    self.foundedServer = NO;
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.udpSocket receiveWithTimeout:-1 tag:0];
@@ -152,6 +160,7 @@
                 continue;
             }
         }
+        self.foundedServer = YES;
         
         if (self.delegate != nil) {
             [self.delegate deviceManager:self updateDeviceList:@[[DeviceInfo deviceInfoWithIpAddress:deviceIpAddress andName:deviceName]]];

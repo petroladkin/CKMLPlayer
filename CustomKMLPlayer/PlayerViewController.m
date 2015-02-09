@@ -40,6 +40,7 @@
 
 - (IBAction)actionTouchDown:(UISlider *)sender;
 - (IBAction)actionTouchUp:(UISlider *)sender;
+- (IBAction)actionProgressChangeValue:(UISlider *)sender;
 
 
 @end
@@ -55,11 +56,58 @@
                                              selector:@selector(moviePlayerPlaybackDidFinishNotification:)
                                                  name:MPMoviePlayerPlaybackDidFinishNotification
                                                object:nil];
+
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(moviePlayerLoadStateDidChangeNotification:)
-                                                 name:MPMoviePlayerLoadStateDidChangeNotification
+                                             selector:@selector(moviePlayerNowPlayingMovieDidChangeNotification:)
+                                                 name:MPMoviePlayerNowPlayingMovieDidChangeNotification
                                                object:nil];
 
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(moviePlayerPlaybackStateDidChangeNotification:)
+                                                 name:MPMoviePlayerPlaybackStateDidChangeNotification
+                                               object:nil];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(moviePlayeNotification:)
+                                                 name:MPMoviePlayerPlaybackDidFinishReasonUserInfoKey
+                                               object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(moviePlayeNotification:)
+                                                 name:MPMoviePlayerLoadStateDidChangeNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(moviePlayeNotification:)
+                                                 name:MPMoviePlayerIsAirPlayVideoActiveDidChangeNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(moviePlayeNotification:)
+                                                 name:MPMoviePlayerReadyForDisplayDidChangeNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(moviePlayeNotification:)
+                                                 name:MPMovieMediaTypesAvailableNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(moviePlayeNotification:)
+                                                 name:MPMovieSourceTypeAvailableNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(moviePlayeNotification:)
+                                                 name:MPMovieDurationAvailableNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(moviePlayeNotification:)
+                                                 name:MPMovieNaturalSizeAvailableNotification
+                                               object:nil];
+    
     [self.tapView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureRecognizer:)]];
 
     self.controlsView.layer.cornerRadius = 8;
@@ -83,7 +131,7 @@
     [self.view insertSubview:self.player.view belowSubview:self.tapView];
 
     [self playCurrentFile];
-    
+    [self resetIdleTimer];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -112,7 +160,6 @@
 }
 
 - (void)playCurrentFile {
-    self.idleTimeInterval = 0.0;
     self.progressSlider.value = 0.0;
     self.positionLabel.text = @"";
     self.durationLabel.text = @"";
@@ -143,6 +190,7 @@
 }
 
 - (void)showUI {
+    [self resetIdleTimer];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
     [UIView animateWithDuration:0.4 animations:^(){
@@ -151,6 +199,7 @@
 }
 
 - (void)hideUI {
+    [self resetIdleTimer];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
     [UIView animateWithDuration:0.4 animations:^(){
@@ -172,22 +221,58 @@
     self.pauseButton.enabled = NO;
 }
 
+- (void) resetIdleTimer {
+    self.idleTimeInterval = [[NSDate date] timeIntervalSince1970];
+}
 
 #pragma mark - notifications
 
 - (void)moviePlayerPlaybackDidFinishNotification:(NSNotification*)notif {
-    [self actionNext:nil];
-}
-
-- (void)moviePlayerLoadStateDidChangeNotification:(NSNotification*)notif {
-    if ((self.player.loadState & MPMovieLoadStatePlaythroughOK) == MPMovieLoadStatePlaythroughOK) {
-        self.playerTimer = [NSTimer scheduledTimerWithTimeInterval:0.5f target:self selector:@selector(playerTimerUpdate:) userInfo:nil repeats:YES];
-        [self enableButtons];
+    NSNumber* reason = [notif.userInfo objectForKey:MPMoviePlayerPlaybackDidFinishReasonUserInfoKey];
+    if ([reason intValue] == MPMovieFinishReasonPlaybackEnded) {
+        [self actionNext:nil];
+    } else {
+        [self.navigationController popToRootViewControllerAnimated:YES];
     }
 }
 
+- (void)moviePlayerNowPlayingMovieDidChangeNotification:(NSNotification*)notif {
+    self.playerTimer = [NSTimer scheduledTimerWithTimeInterval:0.5f target:self selector:@selector(playerTimerUpdate:) userInfo:nil repeats:YES];
+    [self enableButtons];
+}
+
+- (void)moviePlayerPlaybackStateDidChangeNotification:(NSNotification*)notif {
+//    NSLog(@"%d", self.player.playbackState);
+//    switch (self.player.playbackState) {
+//        case MPMoviePlaybackStateStopped:
+//            NSLog(@"MPMoviePlaybackStateStopped");
+//            break;
+//        case MPMoviePlaybackStatePlaying:
+//            NSLog(@"MPMoviePlaybackStatePlaying");
+//            break;
+//        case MPMoviePlaybackStatePaused:
+//            NSLog(@"MPMoviePlaybackStatePaused");
+//            break;
+//        case MPMoviePlaybackStateInterrupted:
+//            NSLog(@"MPMoviePlaybackStateInterrupted");
+//            break;
+//        case MPMoviePlaybackStateSeekingForward:
+//            NSLog(@"MPMoviePlaybackStateSeekingForward");
+//            break;
+//        case MPMoviePlaybackStateSeekingBackward:
+//            NSLog(@"MPMoviePlaybackStateSeekingBackward");
+//            break;
+//    }
+    if (self.dontUpdateSlider && self.player.playbackState == MPMoviePlaybackStatePlaying) {
+        self.dontUpdateSlider = NO;
+    }
+}
+
+- (void)moviePlayeNotification:(NSNotification*)notif {
+//    NSLog(@"moviePlayeNotification - %@", notif);
+}
+
 - (void)tapGestureRecognizer:(UITapGestureRecognizer *)recognizer {
-    self.idleTimeInterval = 0.0;
     if ([self isShowingUI]) {
         [self hideUI];
     } else {
@@ -199,15 +284,14 @@
     if ([self isShowingUI]) {
         if (!self.dontUpdateSlider) {
             self.progressSlider.value = self.player.currentPlaybackTime / self.player.duration;
+            self.positionLabel.text = [self timeToString:self.player.currentPlaybackTime];
+            self.durationLabel.text = [NSString stringWithFormat:@"-%@", [self timeToString:self.player.duration - self.player.currentPlaybackTime]];
         }
         
-        self.positionLabel.text = [self timeToString:self.player.currentPlaybackTime];
-        self.durationLabel.text = [NSString stringWithFormat:@"-%@", [self timeToString:self.player.duration - self.player.currentPlaybackTime]];
-        
-        self.idleTimeInterval += 0.5;
-        if (self.idleTimeInterval > 4) {
-            self.idleTimeInterval = 0.0;
-            [self hideUI];
+        if (!self.dontUpdateSlider) {
+            if ([[NSDate date] timeIntervalSince1970] - self.idleTimeInterval > 5.0f) {
+                [self hideUI];
+            }
         }
     }
 }
@@ -216,6 +300,7 @@
 #pragma mark - help methods
 
 - (IBAction)actionPrev:(UIButton *)sender {
+    [self resetIdleTimer];
     if (self.currentFileIndex == 0) {
         self.currentFileIndex = self.files.count - 1;
     } else {
@@ -227,20 +312,21 @@
 }
 
 - (IBAction)actionPlay:(UIButton *)sender {
-    self.idleTimeInterval = 0.0;
+    [self resetIdleTimer];
     [self.player play];
     self.playButton.hidden = YES;
     self.pauseButton.hidden = NO;
 }
 
 - (IBAction)actionPause:(UIButton *)sender {
-    self.idleTimeInterval = 0.0;
+    [self resetIdleTimer];
     [self.player pause];
     self.playButton.hidden = NO;
     self.pauseButton.hidden = YES;
 }
 
 - (IBAction)actionNext:(UIButton *)sender {
+    [self resetIdleTimer];
     if (self.currentFileIndex == self.files.count - 1) {
         self.currentFileIndex = 0;
     } else {
@@ -256,9 +342,16 @@
 }
 
 - (IBAction)actionTouchUp:(UISlider *)sender {
-    self.dontUpdateSlider = NO;
+    [self resetIdleTimer];
+//    self.dontUpdateSlider = NO;
     
     self.player.currentPlaybackTime = self.player.duration * sender.value;
+}
+
+- (IBAction)actionProgressChangeValue:(UISlider *)sender {
+    NSTimeInterval playbackTime = self.player.duration * sender.value;
+    self.positionLabel.text = [self timeToString:playbackTime];
+    self.durationLabel.text = [NSString stringWithFormat:@"-%@", [self timeToString:self.player.duration - playbackTime]];
 }
 
 

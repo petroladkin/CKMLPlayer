@@ -163,6 +163,7 @@
                                         <rect key="frame" x="10" y="10" width="480" height="31"/>
                                         <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
+                                            <action selector="actionProgressChangeValue:" destination="psx-Nk-AeL" eventType="valueChanged" id="hKe-ev-wSB"/>
                                             <action selector="actionTouchDown:" destination="psx-Nk-AeL" eventType="touchDown" id="KXC-LK-waY"/>
                                             <action selector="actionTouchUp:" destination="psx-Nk-AeL" eventType="touchUpOutside" id="PEU-TV-9zW"/>
                                             <action selector="actionTouchUp:" destination="psx-Nk-AeL" eventType="touchUpInside" id="nJn-bf-OdO"/>
