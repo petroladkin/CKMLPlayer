@@ -9,43 +9,48 @@
 #import <Foundation/Foundation.h>
 
 
+typedef NS_ENUM(NSUInteger, DeviceInfoPortStatus) {
+    DeviceInfoPortStatusUnknown,
+    DeviceInfoPortStatusConnected,
+    DeviceInfoPortStatusDisconnected
+};
+
+
+
 @interface DeviceInfo : NSObject
 
 
-@property (strong, nonatomic, readonly) NSString* ipAddress;
 @property (strong, nonatomic, readonly) NSString* name;
-
-
-+ (id)deviceInfoWithIpAddress:(NSString*)ipAddress andName:(NSString*)name;
-- (id)initInfoWithIpAddress:(NSString*)ipAddress andName:(NSString*)name;
-
-
-@end
-
-
-@class DeviceManager;
-
-
-@protocol DeviceManagerDelegate <NSObject>
-
-
-@required
-- (void)deviceManager:(DeviceManager*)deviceManager updateDeviceList:(NSArray*)devices;
+@property (strong, nonatomic, readonly) NSString* info;
+@property (strong, nonatomic, readonly) NSString* ipAddress;
+@property (assign, nonatomic, readonly) DeviceInfoPortStatus sdCardStatus;
+@property (assign, nonatomic, readonly) DeviceInfoPortStatus usbDeviceStatus;
 
 
 @end
+
+
+static NSString *const DeviceManagerWillUpdateDeviceList = @"DeviceManagerWillUpdateDeviceList";
+static NSString *const DeviceManagerDidUpdateDeviceList = @"DeviceManagerDidUpdateDeviceList";
+static NSString *const DeviceManagerFailUpdateDeviceList = @"DeviceManagerFailUpdateDeviceList";
+static NSString *const DeviceManagerTimeoutUpdateDeviceList = @"DeviceManagerTimeoutUpdateDeviceList";
+
+static NSString *const DeviceManagerDidUpdateDeviceInfo = @"DeviceManagerDidUpdateDeviceInfo";
 
 
 @interface DeviceManager : NSObject
 
 
-@property (weak, nonatomic) id<DeviceManagerDelegate> delegate;
-
-
 + (DeviceManager*)sharedManager;
 
-- (void)start;
-- (void)stop;
+
+@property (assign, nonatomic, readonly) NSArray* devices;
+
+
+- (void)updateDeviceList;
+
+- (void)startKeapAliveTimer;
+- (void)stopKeapAliveTimer;
 
 
 @end

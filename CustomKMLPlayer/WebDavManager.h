@@ -10,49 +10,24 @@
 #import "LEOWebDAVRequest.h"
 
 
-@interface WebDavItem : NSObject
+@interface WebDavClient : NSObject
 
 
-@property (assign, nonatomic, readonly) BOOL isFolder;
-@property (strong, nonatomic, readonly) NSString* name;
-@property (strong, nonatomic, readonly) NSString* url;
+- (void)close;
 
-
-+ (id)itemWithName:(NSString*)name url:(NSString*)url andIsFolder:(BOOL)isFolder;
-
-- (id)initWithName:(NSString*)name url:(NSString*)url andIsFolder:(BOOL)isFolder;
+- (void)checkRequest:(NSString*)request seccuss:(void(^)(BOOL))seccussBlock fail:(void(^)(int, NSString*))failBlock;
+//- (void)requestListFiles:(NSString*)request;
 
 
 @end
 
 
-@class WebDavManager;
-
-
-@protocol WebDavManagerDelegate <NSObject>
-
-
-@required
-- (void)webDavManager:(WebDavManager*)webDavManager request:(NSString*)request responce:(NSArray*)responce;
-- (void)webDavManager:(WebDavManager*)webDavManager request:(NSString*)request didFail:(NSError*)error;
-
-
-@end
-
-
-@interface WebDavManager : NSObject <LEOWebDAVRequestDelegate>
-
-
-@property (weak, nonatomic) id<WebDavManagerDelegate> delegate;
+@interface WebDavManager : NSObject
 
 
 + (WebDavManager*)sharedManager;
 
-
-- (void)connect:(NSString*)ipAddress;
-- (void)disconnect;
-
-- (void)requestListFiles:(NSString*)request;
+- (WebDavClient*)clientWithUrl:(NSString*)url userName:(NSString*)userName andPassword:(NSString*)password;
 
 
 @end

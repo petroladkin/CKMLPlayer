@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DeviceManager.h"
-#import "WebDavManager.h"
+//#import "DeviceManager.h"
+//#import "WebDavManager.h"
 
 
 @interface TableViewController : UITableViewController <DeviceManagerDelegate, WebDavManagerDelegate>
