@@ -28,7 +28,7 @@
 - (void)awakeFromNib {
 }
 
-- (void)update:(DeviceInfo*)deviceInfo {
+- (void)update:(KWMLDeviceInfo*)deviceInfo {
     self.deviceNameLabel.text = deviceInfo.name;
     self.deviceIpLabel.text = deviceInfo.ipAddress;
     self.deviceInfoLabel.text = deviceInfo.info;

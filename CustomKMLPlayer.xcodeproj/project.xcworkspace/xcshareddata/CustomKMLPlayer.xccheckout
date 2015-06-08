@@ -11,7 +11,7 @@
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>4FA24F8A6881ED70902AEEC0FA65D5847408AA42</key>
-		<string>https://github.com/petroladkin/CKMLPlayer.git</string>
+		<string>https://bitbucket.org/petroladkin/ckmlplayer.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>CustomKMLPlayer.xcodeproj</string>
@@ -21,7 +21,7 @@
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/petroladkin/CKMLPlayer.git</string>
+	<string>https://bitbucket.org/petroladkin/ckmlplayer.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>

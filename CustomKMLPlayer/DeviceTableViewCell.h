@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DeviceManager.h"
+#import "KWMLDeviceManager.h"
 
 
 @interface DeviceTableViewCell : UITableViewCell
 
 
-- (void)update:(DeviceInfo*)deviceInfo;
+- (void)update:(KWMLDeviceInfo*)deviceInfo;
 
 
 @end

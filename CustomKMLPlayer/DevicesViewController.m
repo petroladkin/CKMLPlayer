@@ -7,8 +7,12 @@
 //
 
 #import "DevicesViewController.h"
+#import "FileSystemViewController.h"
 #import "DeviceTableViewCell.h"
-#import "DeviceManager.h"
+#import "KWMLDeviceManager.h"
+#import "WebDavFileSystem.h"
+
+#import "InMemmoryCoreDataManager.h"
 
 
 @interface DevicesViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -19,7 +23,8 @@
 @property (strong, nonatomic) UIActivityIndicatorView* busyIndicator;
 @property (strong, nonatomic) UIRefreshControl* tableRefreshControl;
 
-@property (strong, nonatomic) NSArray* devices;
+@property (strong, nonatomic) NSArray* kwmlDevices;
+@property (strong, nonatomic) NSArray* localStorages;
 
 @end
 
@@ -38,7 +43,8 @@
     self.busyIndicator.hidesWhenStopped = YES;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.busyIndicator];
     
-    self.devices = @[];
+    self.kwmlDevices = @[];
+    self.localStorages = @[];
     
     NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
     [nc addObserver:self selector:@selector(deviceManagerWillUpdateDeviceList:) name:DeviceManagerWillUpdateDeviceList object:nil];
@@ -47,23 +53,23 @@
     [nc addObserver:self selector:@selector(deviceManagerTimeoutUpdateDeviceList:) name:DeviceManagerTimeoutUpdateDeviceList object:nil];
     [nc addObserver:self selector:@selector(deviceManagerDidUpdateDeviceInfo:) name:DeviceManagerDidUpdateDeviceInfo object:nil];
     
-    [[DeviceManager sharedManager] updateDeviceList];
+    [[KWMLDeviceManager sharedManager] updateDeviceList];
 }
 
 
 #pragma mark - notifications
 
 - (void)deviceManagerWillUpdateDeviceList:(NSNotification*)notification {
-    if (!self.tableRefreshControl.refreshing) {
-        [self.busyIndicator startAnimating];
-    }
+//    if (!self.tableRefreshControl.refreshing) {
+//        [self.busyIndicator startAnimating];
+//    }
 }
 
 - (void)deviceManagerDidUpdateDeviceList:(NSNotification*)notification {
     [self.busyIndicator stopAnimating];
     [self.tableRefreshControl endRefreshing];
     
-    self.devices = [NSArray arrayWithArray:[DeviceManager sharedManager].devices];
+    self.kwmlDevices = [NSArray arrayWithArray:[KWMLDeviceManager sharedManager].devices];
     
     [self.tableView reloadData];
 }
@@ -72,7 +78,7 @@
     [self.busyIndicator stopAnimating];
     [self.tableRefreshControl endRefreshing];
 
-    self.devices = @[];
+    self.kwmlDevices = @[];
     
     [self.tableView reloadData];
 }
@@ -81,13 +87,13 @@
     [self.busyIndicator stopAnimating];
     [self.tableRefreshControl endRefreshing];
     
-    self.devices = @[];
+    self.kwmlDevices = @[];
     
     [self.tableView reloadData];
 }
 
 - (void)deviceManagerDidUpdateDeviceInfo:(NSNotification*)notification {
-    self.devices = [NSArray arrayWithArray:[DeviceManager sharedManager].devices];
+    self.kwmlDevices = [NSArray arrayWithArray:[KWMLDeviceManager sharedManager].devices];
     [self.tableView reloadData];
 }
 
@@ -95,23 +101,32 @@
 #pragma mark - events
 
 - (void)refreshTable {
-    [[DeviceManager sharedManager] updateDeviceList];
+    [[KWMLDeviceManager sharedManager] updateDeviceList];
 }
 
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.devices.count;
+    return self.kwmlDevices.count + self.localStorages.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString* cellDevice = @"cellDevice";
+    static NSString* cellLocalStorage = @"cellLocalStorage";
     
-    DeviceInfo* di = [self.devices objectAtIndex:indexPath.row];
+    UITableViewCell* cell = nil;
+    if (indexPath.row < self.kwmlDevices.count) {
+        KWMLDeviceInfo* di = [self.kwmlDevices objectAtIndex:indexPath.row];
     
-    DeviceTableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier:cellDevice];
+        DeviceTableViewCell* dcell = [self.tableView dequeueReusableCellWithIdentifier:cellDevice];
 
-    [cell update:di];
+        [dcell update:di];
+        cell = dcell;
+    } else if (indexPath.row < (self.kwmlDevices.count + self.localStorages.count)) {
+        
+    } else {
+        
+    }
     
     return cell;
 }
@@ -120,6 +135,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    KWMLDeviceInfo* di = [self.kwmlDevices objectAtIndex:indexPath.row];
+
+    FileSystemViewController* fsvc = [self.storyboard instantiateViewControllerWithIdentifier:@"FileSystemViewController"];
+    
+    [fsvc setRootPath:@"/" ofFileSystem:[WebDavFileSystem fileSystemWithUrl:di.url userName:@"" andPassword:@""]];
+    
+    [self.navigationController pushViewController:fsvc animated:YES];
 }
 
 

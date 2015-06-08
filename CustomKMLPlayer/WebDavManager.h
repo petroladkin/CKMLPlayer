@@ -7,19 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "LEOWebDAVRequest.h"
 
-
-@interface WebDavClient : NSObject
-
-
-- (void)close;
-
-- (void)checkRequest:(NSString*)request seccuss:(void(^)(BOOL))seccussBlock fail:(void(^)(int, NSString*))failBlock;
-//- (void)requestListFiles:(NSString*)request;
-
-
-@end
+#import "WebDavClient.h"
 
 
 @interface WebDavManager : NSObject
@@ -28,6 +17,7 @@
 + (WebDavManager*)sharedManager;
 
 - (WebDavClient*)clientWithUrl:(NSString*)url userName:(NSString*)userName andPassword:(NSString*)password;
+
 
 
 @end

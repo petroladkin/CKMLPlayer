@@ -17,12 +17,13 @@ typedef NS_ENUM(NSUInteger, DeviceInfoPortStatus) {
 
 
 
-@interface DeviceInfo : NSObject
+@interface KWMLDeviceInfo : NSObject
 
 
 @property (strong, nonatomic, readonly) NSString* name;
 @property (strong, nonatomic, readonly) NSString* info;
 @property (strong, nonatomic, readonly) NSString* ipAddress;
+@property (strong, nonatomic, readonly) NSString* url;
 @property (assign, nonatomic, readonly) DeviceInfoPortStatus sdCardStatus;
 @property (assign, nonatomic, readonly) DeviceInfoPortStatus usbDeviceStatus;
 
@@ -38,10 +39,10 @@ static NSString *const DeviceManagerTimeoutUpdateDeviceList = @"DeviceManagerTim
 static NSString *const DeviceManagerDidUpdateDeviceInfo = @"DeviceManagerDidUpdateDeviceInfo";
 
 
-@interface DeviceManager : NSObject
+@interface KWMLDeviceManager : NSObject
 
 
-+ (DeviceManager*)sharedManager;
++ (KWMLDeviceManager*)sharedManager;
 
 
 @property (assign, nonatomic, readonly) NSArray* devices;

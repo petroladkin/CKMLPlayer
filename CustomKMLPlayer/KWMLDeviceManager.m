@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 PeLa. All rights reserved.
 //
 
-#import "DeviceManager.h"
+#import "KWMLDeviceManager.h"
 #import "CocoaAsyncSocket/AsyncUdpSocket.h"
 #import "WebDavManager.h"
 
@@ -16,7 +16,7 @@
 #include <ifaddrs.h>
 
 
-@interface DeviceInfo ()
+@interface KWMLDeviceInfo ()
 
 
 + (id)deviceInfoWithIpAddress:(NSString*)ipAddress name:(NSString*)name andInfo:(NSString*)info;
@@ -30,11 +30,11 @@
 @end
 
 
-@implementation DeviceInfo
+@implementation KWMLDeviceInfo
 
 
 + (id)deviceInfoWithIpAddress:(NSString*)ipAddress name:(NSString*)name andInfo:(NSString*)info {
-    return [[DeviceInfo alloc] initInfoWithIpAddress:ipAddress name:name andInfo:info];
+    return [[KWMLDeviceInfo alloc] initInfoWithIpAddress:ipAddress name:name andInfo:info];
 }
 
 - (id)initInfoWithIpAddress:(NSString*)ipAddress name:(NSString*)name andInfo:(NSString*)info {
@@ -43,6 +43,7 @@
         _name = name;
         _info = info;
         _ipAddress = ipAddress;
+        _url = [NSString stringWithFormat:@"http://%@:8080/", ipAddress];
         _sdCardStatus = DeviceInfoPortStatusUnknown;
         _usbDeviceStatus = DeviceInfoPortStatusUnknown;
     }
@@ -69,14 +70,15 @@
 const static int MaxNotReceiveCounter = 3;
 
 
-@interface DeviceManager ()
+@interface KWMLDeviceManager ()
 
 
 @property (strong, nonatomic) AsyncUdpSocket* udpSocket;
 @property (strong, nonatomic) NSTimer* updateTimer;
+@property (strong, nonatomic) NSTimer* receiveTimer;
 
 @property (assign, nonatomic) int notReceiveResponceCouter;
-@property (strong, nonatomic) dispatch_queue_t queue;
+//@property (strong, nonatomic) dispatch_queue_t queue;
 
 @property (strong, nonatomic) NSMutableArray* realDevices;
 @property (strong, nonatomic) NSMutableDictionary* devicesByKey;
@@ -85,15 +87,15 @@ const static int MaxNotReceiveCounter = 3;
 @end
 
 
-@implementation DeviceManager
+@implementation KWMLDeviceManager
 
 
-+ (DeviceManager*)sharedManager {
-    static DeviceManager* manager = nil;
++ (KWMLDeviceManager*)sharedManager {
+    static KWMLDeviceManager* manager = nil;
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        manager = [[DeviceManager alloc] init];
+        manager = [[KWMLDeviceManager alloc] init];
     });
     
     return manager;
@@ -105,7 +107,7 @@ const static int MaxNotReceiveCounter = 3;
     if (self != nil) {
         self.realDevices = [NSMutableArray array];
         self.devicesByKey = [NSMutableDictionary dictionary];
-        self.queue = dispatch_queue_create("ua.com.pela.ckwmlplayer.asqueue", DISPATCH_QUEUE_CONCURRENT);
+//        self.queue = dispatch_queue_create("ua.com.pela.ckwmlplayer.asqueue", DISPATCH_QUEUE_CONCURRENT);
         [self start];
     }
     return self;
@@ -151,20 +153,28 @@ const static int MaxNotReceiveCounter = 3;
 
     NSString* message = [NSString stringWithFormat:@"wi-drivec=%@", myIpAddress];
     
-    dispatch_sync(self.queue, ^(){
+    dispatch_async(dispatch_get_main_queue(), ^(){
+//    dispatch_sync(self.queue, ^(){
         if ([self.udpSocket sendData:[message dataUsingEncoding:NSUTF8StringEncoding] toHost:bcIpAddress port:5190 withTimeout:-1 tag:0]) {
-            [self.udpSocket receiveWithTimeout:3000 tag:0];
+            [self.udpSocket receiveWithTimeout:30 tag:0];
         } else {
             [[NSNotificationCenter defaultCenter] postNotificationName:DeviceManagerFailUpdateDeviceList object:@"Failed send data over socket"];
         }
     });
 }
 
+- (void)receiveTimer:(id)obj {
+    [self.udpSocket receiveWithTimeout:30 tag:0];
+}
+
+
 
 #pragma mark - AsyncUdpSocketDelegate
 
 - (void)onUdpSocket:(AsyncUdpSocket *)sock didNotSendDataWithTag:(long)tag dueToError:(NSError *)error {
     [[NSNotificationCenter defaultCenter] postNotificationName:DeviceManagerFailUpdateDeviceList object:@"Failed send data over socket"];
+    [self stop];
+    [self start];
 }
 
 - (BOOL)onUdpSocket:(AsyncUdpSocket *)sock
@@ -216,11 +226,11 @@ const static int MaxNotReceiveCounter = 3;
         }
         NSString* info = [NSString stringWithFormat:@"%@ (%@)", deviceModel, deviceVersion];
         
-        DeviceInfo* di = [self.devicesByKey objectForKey:deviceIpAddress];
+        KWMLDeviceInfo* di = [self.devicesByKey objectForKey:deviceIpAddress];
         if (di != nil) {
             [di setName:deviceName andInfo:info];
         } else {
-            di = [DeviceInfo deviceInfoWithIpAddress:deviceIpAddress name:deviceName andInfo:info];
+            di = [KWMLDeviceInfo deviceInfoWithIpAddress:deviceIpAddress name:deviceName andInfo:info];
             [self.realDevices addObject:di];
             [self.devicesByKey setObject:di forKey:deviceIpAddress];
         }
@@ -242,9 +252,10 @@ const static int MaxNotReceiveCounter = 3;
 #pragma mark - help methods
 
 - (void)start {
-    dispatch_sync(self.queue, ^(){
+    dispatch_async(dispatch_get_main_queue(), ^(){
+//    dispatch_async(self.queue, ^(){
         self.udpSocket = [[AsyncUdpSocket alloc] initWithDelegate:self];
-        
+
         NSError* error = nil;
         [self.udpSocket bindToPort:5190 error:&error];
         if (error != nil) {
@@ -259,21 +270,25 @@ const static int MaxNotReceiveCounter = 3;
     
     self.notReceiveResponceCouter = 0;
     self.updateTimer = [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(updateTimer:) userInfo:nil repeats:YES];
+    self.receiveTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(receiveTimer:) userInfo:nil repeats:YES];
 }
 
 - (void)stop {
     [self.updateTimer invalidate];
     self.updateTimer = nil;
-    dispatch_sync(self.queue, ^(){
+    [self.receiveTimer invalidate];
+    self.receiveTimer = nil;
+    dispatch_async(dispatch_get_main_queue(), ^(){
+//    dispatch_async(self.queue, ^(){
         [self.udpSocket close];
         self.udpSocket = nil;
     });
 }
 
-- (void)getPortStatus:(DeviceInfo*)device {
-    __weak DeviceInfo* wdevice = device;
+- (void)getPortStatus:(KWMLDeviceInfo*)device {
+    __weak KWMLDeviceInfo* wdevice = device;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(){
-        WebDavClient* wdc = [[WebDavManager sharedManager] clientWithUrl:[NSString stringWithFormat:@"http://%@:8080/", wdevice.ipAddress] userName:@"" andPassword:@""];
+        WebDavClient* wdc = [[WebDavManager sharedManager] clientWithUrl:device.url userName:@"" andPassword:@""];
         [wdc checkRequest:@"/SD_Card1/" seccuss:^(BOOL exist) {
             [wdevice setSdCardStatus:exist ? DeviceInfoPortStatusConnected : DeviceInfoPortStatusDisconnected];
             [[NSNotificationCenter defaultCenter] postNotificationName:DeviceManagerDidUpdateDeviceInfo object:wdevice];

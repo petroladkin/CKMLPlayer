@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A192CBE1B1F30110068E081 /* FileSystemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A192CBD1B1F30110068E081 /* FileSystemTableViewCell.m */; };
+		9A192CC41B1F349E0068E081 /* FileSystemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A192CC31B1F349E0068E081 /* FileSystemViewController.m */; };
+		9A192CC71B1F3D1D0068E081 /* FileSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A192CC61B1F3D1D0068E081 /* FileSystem.m */; };
+		9A192CCA1B1F3D330068E081 /* WebDavFileSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A192CC91B1F3D330068E081 /* WebDavFileSystem.m */; };
+		9A192CD31B1F82FB0068E081 /* FileSystemItem+More.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A192CD21B1F82FB0068E081 /* FileSystemItem+More.m */; };
+		9A4348BD1B202DB00041F572 /* InMemmoryCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A4348BC1B202DB00041F572 /* InMemmoryCoreDataManager.m */; };
+		9A4348BF1B202E4B0041F572 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4348BE1B202E4B0041F572 /* CoreData.framework */; };
+		9A4348C31B20437B0041F572 /* FileSystemItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A4348C21B20437B0041F572 /* FileSystemItem.m */; };
+		9A4348C81B2069570041F572 /* WebDavClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A4348C71B2069570041F572 /* WebDavClient.m */; };
+		9A4348CB1B2069DB0041F572 /* WebDavItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A4348CA1B2069DB0041F572 /* WebDavItem.m */; };
+		9A4348CE1B206A820041F572 /* WebDavCheckRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A4348CD1B206A820041F572 /* WebDavCheckRequest.m */; };
+		9A4348D11B206E5C0041F572 /* WebDavListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A4348D01B206E5C0041F572 /* WebDavListRequest.m */; };
+		9A4348D41B206EA10041F572 /* WebDavRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A4348D31B206EA10041F572 /* WebDavRequest.m */; };
+		9A4348D91B24A8260041F572 /* StorageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A4348D81B24A8260041F572 /* StorageTableViewCell.m */; };
 		9A45570F1A7B8C5100A67A95 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A45570E1A7B8C5100A67A95 /* MediaPlayer.framework */; };
 		9A593A101B1C56CD00E0D4EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A593A0E1B1C56CD00E0D4EE /* Main.storyboard */; };
 		9AA96F9F1A728DDD005B90E1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA96F9E1A728DDD005B90E1 /* main.m */; };
@@ -14,12 +28,9 @@
 		9AA96FA51A728DDD005B90E1 /* CustomKMLPlayer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9AA96FA31A728DDD005B90E1 /* CustomKMLPlayer.xcdatamodeld */; };
 		9AA96FAD1A728DDD005B90E1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AA96FAC1A728DDD005B90E1 /* Images.xcassets */; };
 		9AA96FBC1A728DDD005B90E1 /* CustomKMLPlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA96FBB1A728DDD005B90E1 /* CustomKMLPlayerTests.m */; };
-		9AA96FCB1A72931D005B90E1 /* TableItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA96FCA1A72931D005B90E1 /* TableItem.m */; };
-		9AA96FCE1A7294C6005B90E1 /* DeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA96FCD1A7294C6005B90E1 /* DeviceManager.m */; };
+		9AA96FCE1A7294C6005B90E1 /* KWMLDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA96FCD1A7294C6005B90E1 /* KWMLDeviceManager.m */; };
 		9AA96FD11A7294D6005B90E1 /* WebDavManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA96FD01A7294D6005B90E1 /* WebDavManager.m */; };
 		9AA96FD61A766ACE005B90E1 /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA96FD51A766ACE005B90E1 /* AsyncUdpSocket.m */; };
-		9AACADF51A77D5B4009E518F /* GroupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AACADF41A77D5B4009E518F /* GroupTableViewCell.m */; };
-		9AACADF81A77D5C1009E518F /* ItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AACADF71A77D5C1009E518F /* ItemTableViewCell.m */; };
 		9AACAE191A77DA27009E518F /* LEOContentTypeConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AACADFB1A77DA27009E518F /* LEOContentTypeConvert.m */; };
 		9AACAE1A1A77DA27009E518F /* LEOWebDAVBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AACADFD1A77DA27009E518F /* LEOWebDAVBaseRequest.m */; };
 		9AACAE1B1A77DA27009E518F /* LEOWebDAVClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AACADFF1A77DA27009E518F /* LEOWebDAVClient.m */; };
@@ -50,6 +61,33 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9A192CBC1B1F30110068E081 /* FileSystemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileSystemTableViewCell.h; sourceTree = "<group>"; };
+		9A192CBD1B1F30110068E081 /* FileSystemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileSystemTableViewCell.m; sourceTree = "<group>"; };
+		9A192CC21B1F349E0068E081 /* FileSystemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileSystemViewController.h; sourceTree = "<group>"; };
+		9A192CC31B1F349E0068E081 /* FileSystemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileSystemViewController.m; sourceTree = "<group>"; };
+		9A192CC51B1F3D1D0068E081 /* FileSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileSystem.h; sourceTree = "<group>"; };
+		9A192CC61B1F3D1D0068E081 /* FileSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileSystem.m; sourceTree = "<group>"; };
+		9A192CC81B1F3D330068E081 /* WebDavFileSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebDavFileSystem.h; sourceTree = "<group>"; };
+		9A192CC91B1F3D330068E081 /* WebDavFileSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebDavFileSystem.m; sourceTree = "<group>"; };
+		9A192CD11B1F82FB0068E081 /* FileSystemItem+More.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FileSystemItem+More.h"; sourceTree = "<group>"; };
+		9A192CD21B1F82FB0068E081 /* FileSystemItem+More.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FileSystemItem+More.m"; sourceTree = "<group>"; };
+		9A4348BB1B202DB00041F572 /* InMemmoryCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InMemmoryCoreDataManager.h; sourceTree = "<group>"; };
+		9A4348BC1B202DB00041F572 /* InMemmoryCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InMemmoryCoreDataManager.m; sourceTree = "<group>"; };
+		9A4348BE1B202E4B0041F572 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		9A4348C11B20437B0041F572 /* FileSystemItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileSystemItem.h; sourceTree = "<group>"; };
+		9A4348C21B20437B0041F572 /* FileSystemItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileSystemItem.m; sourceTree = "<group>"; };
+		9A4348C61B2069570041F572 /* WebDavClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebDavClient.h; sourceTree = "<group>"; };
+		9A4348C71B2069570041F572 /* WebDavClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebDavClient.m; sourceTree = "<group>"; };
+		9A4348C91B2069DB0041F572 /* WebDavItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebDavItem.h; sourceTree = "<group>"; };
+		9A4348CA1B2069DB0041F572 /* WebDavItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebDavItem.m; sourceTree = "<group>"; };
+		9A4348CC1B206A820041F572 /* WebDavCheckRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebDavCheckRequest.h; sourceTree = "<group>"; };
+		9A4348CD1B206A820041F572 /* WebDavCheckRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebDavCheckRequest.m; sourceTree = "<group>"; };
+		9A4348CF1B206E5C0041F572 /* WebDavListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebDavListRequest.h; sourceTree = "<group>"; };
+		9A4348D01B206E5C0041F572 /* WebDavListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebDavListRequest.m; sourceTree = "<group>"; };
+		9A4348D21B206EA10041F572 /* WebDavRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebDavRequest.h; sourceTree = "<group>"; };
+		9A4348D31B206EA10041F572 /* WebDavRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebDavRequest.m; sourceTree = "<group>"; };
+		9A4348D71B24A8260041F572 /* StorageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StorageTableViewCell.h; sourceTree = "<group>"; };
+		9A4348D81B24A8260041F572 /* StorageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StorageTableViewCell.m; sourceTree = "<group>"; };
 		9A45570E1A7B8C5100A67A95 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		9A593A0F1B1C56CD00E0D4EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9AA96F991A728DDD005B90E1 /* CustomKMLPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomKMLPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,18 +100,12 @@
 		9AA96FB51A728DDD005B90E1 /* CustomKMLPlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomKMLPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AA96FBA1A728DDD005B90E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9AA96FBB1A728DDD005B90E1 /* CustomKMLPlayerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomKMLPlayerTests.m; sourceTree = "<group>"; };
-		9AA96FC91A72931D005B90E1 /* TableItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableItem.h; sourceTree = "<group>"; };
-		9AA96FCA1A72931D005B90E1 /* TableItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableItem.m; sourceTree = "<group>"; };
-		9AA96FCC1A7294C6005B90E1 /* DeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceManager.h; sourceTree = "<group>"; };
-		9AA96FCD1A7294C6005B90E1 /* DeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceManager.m; sourceTree = "<group>"; };
+		9AA96FCC1A7294C6005B90E1 /* KWMLDeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWMLDeviceManager.h; sourceTree = "<group>"; };
+		9AA96FCD1A7294C6005B90E1 /* KWMLDeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWMLDeviceManager.m; sourceTree = "<group>"; };
 		9AA96FCF1A7294D6005B90E1 /* WebDavManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebDavManager.h; sourceTree = "<group>"; };
 		9AA96FD01A7294D6005B90E1 /* WebDavManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebDavManager.m; sourceTree = "<group>"; };
 		9AA96FD41A766ACE005B90E1 /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncUdpSocket.h; sourceTree = "<group>"; };
 		9AA96FD51A766ACE005B90E1 /* AsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncUdpSocket.m; sourceTree = "<group>"; };
-		9AACADF31A77D5B4009E518F /* GroupTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupTableViewCell.h; sourceTree = "<group>"; };
-		9AACADF41A77D5B4009E518F /* GroupTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupTableViewCell.m; sourceTree = "<group>"; };
-		9AACADF61A77D5C1009E518F /* ItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemTableViewCell.h; sourceTree = "<group>"; };
-		9AACADF71A77D5C1009E518F /* ItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemTableViewCell.m; sourceTree = "<group>"; };
 		9AACADFA1A77DA27009E518F /* LEOContentTypeConvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEOContentTypeConvert.h; sourceTree = "<group>"; };
 		9AACADFB1A77DA27009E518F /* LEOContentTypeConvert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEOContentTypeConvert.m; sourceTree = "<group>"; };
 		9AACADFC1A77DA27009E518F /* LEOWebDAVBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEOWebDAVBaseRequest.h; sourceTree = "<group>"; };
@@ -116,6 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A4348BF1B202E4B0041F572 /* CoreData.framework in Frameworks */,
 				9A45570F1A7B8C5100A67A95 /* MediaPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -130,9 +163,110 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A192CCB1B1F80640068E081 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				9A192CCC1B1F806C0068E081 /* Models */,
+				9A4348BA1B202D640041F572 /* Managers */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		9A192CCC1B1F806C0068E081 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9A192CCD1B1F80830068E081 /* ModelsCategory */,
+				9A4348C11B20437B0041F572 /* FileSystemItem.h */,
+				9A4348C21B20437B0041F572 /* FileSystemItem.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		9A192CCD1B1F80830068E081 /* ModelsCategory */ = {
+			isa = PBXGroup;
+			children = (
+				9A192CD11B1F82FB0068E081 /* FileSystemItem+More.h */,
+				9A192CD21B1F82FB0068E081 /* FileSystemItem+More.m */,
+			);
+			name = ModelsCategory;
+			sourceTree = "<group>";
+		};
+		9A4348BA1B202D640041F572 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				9A4348BB1B202DB00041F572 /* InMemmoryCoreDataManager.h */,
+				9A4348BC1B202DB00041F572 /* InMemmoryCoreDataManager.m */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
+		9A4348C01B2038120041F572 /* Thirdparty */ = {
+			isa = PBXGroup;
+			children = (
+				9AACADF91A77DA27009E518F /* LEOWebDAV */,
+				9AA96FD31A766ACE005B90E1 /* CocoaAsyncSocket */,
+			);
+			name = Thirdparty;
+			sourceTree = "<group>";
+		};
+		9A4348C41B204A380041F572 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				9AB7D5F61B06159500A32FEC /* TableCells */,
+				9AA96FA01A728DDD005B90E1 /* AppDelegate.h */,
+				9AA96FA11A728DDD005B90E1 /* AppDelegate.m */,
+				9AB7D5F71B06235E00A32FEC /* DevicesViewController.h */,
+				9AB7D5F81B06235E00A32FEC /* DevicesViewController.m */,
+				9A192CC21B1F349E0068E081 /* FileSystemViewController.h */,
+				9A192CC31B1F349E0068E081 /* FileSystemViewController.m */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		9A4348C51B2069230041F572 /* WebDAVClient */ = {
+			isa = PBXGroup;
+			children = (
+				9A4348C91B2069DB0041F572 /* WebDavItem.h */,
+				9A4348CA1B2069DB0041F572 /* WebDavItem.m */,
+				9A4348C61B2069570041F572 /* WebDavClient.h */,
+				9A4348C71B2069570041F572 /* WebDavClient.m */,
+				9A4348D21B206EA10041F572 /* WebDavRequest.h */,
+				9A4348D31B206EA10041F572 /* WebDavRequest.m */,
+				9A4348CC1B206A820041F572 /* WebDavCheckRequest.h */,
+				9A4348CD1B206A820041F572 /* WebDavCheckRequest.m */,
+				9A4348CF1B206E5C0041F572 /* WebDavListRequest.h */,
+				9A4348D01B206E5C0041F572 /* WebDavListRequest.m */,
+				9AA96FCF1A7294D6005B90E1 /* WebDavManager.h */,
+				9AA96FD01A7294D6005B90E1 /* WebDavManager.m */,
+			);
+			name = WebDAVClient;
+			sourceTree = "<group>";
+		};
+		9A4348D51B2075D40041F572 /* KingstoneWirelessMobileLite */ = {
+			isa = PBXGroup;
+			children = (
+				9AA96FCC1A7294C6005B90E1 /* KWMLDeviceManager.h */,
+				9AA96FCD1A7294C6005B90E1 /* KWMLDeviceManager.m */,
+			);
+			name = KingstoneWirelessMobileLite;
+			sourceTree = "<group>";
+		};
+		9A4348D61B208DA20041F572 /* FileSystem */ = {
+			isa = PBXGroup;
+			children = (
+				9A192CCB1B1F80640068E081 /* CoreData */,
+				9A192CC51B1F3D1D0068E081 /* FileSystem.h */,
+				9A192CC61B1F3D1D0068E081 /* FileSystem.m */,
+				9A192CC81B1F3D330068E081 /* WebDavFileSystem.h */,
+				9A192CC91B1F3D330068E081 /* WebDavFileSystem.m */,
+			);
+			name = FileSystem;
+			sourceTree = "<group>";
+		};
 		9AA96F901A728DDD005B90E1 = {
 			isa = PBXGroup;
 			children = (
+				9A4348BE1B202E4B0041F572 /* CoreData.framework */,
 				9A45570E1A7B8C5100A67A95 /* MediaPlayer.framework */,
 				9AA96F9B1A728DDD005B90E1 /* CustomKMLPlayer */,
 				9AA96FB81A728DDD005B90E1 /* CustomKMLPlayerTests */,
@@ -152,12 +286,9 @@
 		9AA96F9B1A728DDD005B90E1 /* CustomKMLPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				9A4348C01B2038120041F572 /* Thirdparty */,
 				9AA96FC81A7292F2005B90E1 /* Core */,
-				9AB7D5F61B06159500A32FEC /* Cells */,
-				9AA96FA01A728DDD005B90E1 /* AppDelegate.h */,
-				9AA96FA11A728DDD005B90E1 /* AppDelegate.m */,
-				9AB7D5F71B06235E00A32FEC /* DevicesViewController.h */,
-				9AB7D5F81B06235E00A32FEC /* DevicesViewController.m */,
+				9A4348C41B204A380041F572 /* UI */,
 				9A593A0E1B1C56CD00E0D4EE /* Main.storyboard */,
 				9AA96FAC1A728DDD005B90E1 /* Images.xcassets */,
 				9AA96FA31A728DDD005B90E1 /* CustomKMLPlayer.xcdatamodeld */,
@@ -195,14 +326,9 @@
 		9AA96FC81A7292F2005B90E1 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				9AACADF91A77DA27009E518F /* LEOWebDAV */,
-				9AA96FD31A766ACE005B90E1 /* CocoaAsyncSocket */,
-				9AA96FC91A72931D005B90E1 /* TableItem.h */,
-				9AA96FCA1A72931D005B90E1 /* TableItem.m */,
-				9AA96FCC1A7294C6005B90E1 /* DeviceManager.h */,
-				9AA96FCD1A7294C6005B90E1 /* DeviceManager.m */,
-				9AA96FCF1A7294D6005B90E1 /* WebDavManager.h */,
-				9AA96FD01A7294D6005B90E1 /* WebDavManager.m */,
+				9A4348C51B2069230041F572 /* WebDAVClient */,
+				9A4348D51B2075D40041F572 /* KingstoneWirelessMobileLite */,
+				9A4348D61B208DA20041F572 /* FileSystem */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -254,17 +380,17 @@
 			path = LEOWebDAV;
 			sourceTree = "<group>";
 		};
-		9AB7D5F61B06159500A32FEC /* Cells */ = {
+		9AB7D5F61B06159500A32FEC /* TableCells */ = {
 			isa = PBXGroup;
 			children = (
-				9AACADF31A77D5B4009E518F /* GroupTableViewCell.h */,
-				9AACADF41A77D5B4009E518F /* GroupTableViewCell.m */,
-				9AACADF61A77D5C1009E518F /* ItemTableViewCell.h */,
-				9AACADF71A77D5C1009E518F /* ItemTableViewCell.m */,
 				9AB7D5FA1B0627A800A32FEC /* DeviceTableViewCell.h */,
 				9AB7D5FB1B0627A800A32FEC /* DeviceTableViewCell.m */,
+				9A4348D71B24A8260041F572 /* StorageTableViewCell.h */,
+				9A4348D81B24A8260041F572 /* StorageTableViewCell.m */,
+				9A192CBC1B1F30110068E081 /* FileSystemTableViewCell.h */,
+				9A192CBD1B1F30110068E081 /* FileSystemTableViewCell.m */,
 			);
-			name = Cells;
+			name = TableCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,27 +493,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A192CCA1B1F3D330068E081 /* WebDavFileSystem.m in Sources */,
+				9A4348C81B2069570041F572 /* WebDavClient.m in Sources */,
 				9AA96FA51A728DDD005B90E1 /* CustomKMLPlayer.xcdatamodeld in Sources */,
-				9AA96FCE1A7294C6005B90E1 /* DeviceManager.m in Sources */,
+				9A192CD31B1F82FB0068E081 /* FileSystemItem+More.m in Sources */,
+				9A4348D41B206EA10041F572 /* WebDavRequest.m in Sources */,
+				9AA96FCE1A7294C6005B90E1 /* KWMLDeviceManager.m in Sources */,
+				9A4348CE1B206A820041F572 /* WebDavCheckRequest.m in Sources */,
+				9A192CC41B1F349E0068E081 /* FileSystemViewController.m in Sources */,
+				9A4348C31B20437B0041F572 /* FileSystemItem.m in Sources */,
 				9AACAE1A1A77DA27009E518F /* LEOWebDAVBaseRequest.m in Sources */,
 				9AACAE231A77DA27009E518F /* LEOWebDAVPropertyRequest.m in Sources */,
-				9AACADF81A77D5C1009E518F /* ItemTableViewCell.m in Sources */,
 				9AACAE261A77DA27009E518F /* LEOWebDAVURL.m in Sources */,
 				9AACAE1C1A77DA27009E518F /* LEOWebDAVCopyRequest.m in Sources */,
+				9A4348D91B24A8260041F572 /* StorageTableViewCell.m in Sources */,
 				9AA96FD11A7294D6005B90E1 /* WebDavManager.m in Sources */,
 				9AACAE241A77DA27009E518F /* LEOWebDAVRequest.m in Sources */,
-				9AACADF51A77D5B4009E518F /* GroupTableViewCell.m in Sources */,
 				9AA96FD61A766ACE005B90E1 /* AsyncUdpSocket.m in Sources */,
 				9AACAE271A77DA27009E518F /* LEOWebDAVUtility.m in Sources */,
+				9A4348D11B206E5C0041F572 /* WebDavListRequest.m in Sources */,
 				9AA96FA21A728DDD005B90E1 /* AppDelegate.m in Sources */,
 				9AA96F9F1A728DDD005B90E1 /* main.m in Sources */,
 				9AACAE1D1A77DA27009E518F /* LEOWebDAVDeleteRequest.m in Sources */,
+				9A192CBE1B1F30110068E081 /* FileSystemTableViewCell.m in Sources */,
 				9AACAE1F1A77DA27009E518F /* LEOWebDAVItem.m in Sources */,
 				9AACAE191A77DA27009E518F /* LEOContentTypeConvert.m in Sources */,
-				9AA96FCB1A72931D005B90E1 /* TableItem.m in Sources */,
+				9A4348CB1B2069DB0041F572 /* WebDavItem.m in Sources */,
 				9AACAE251A77DA27009E518F /* LEOWebDAVUploadRequest.m in Sources */,
+				9A192CC71B1F3D1D0068E081 /* FileSystem.m in Sources */,
 				9AACAE201A77DA27009E518F /* LEOWebDAVMakeCollectionRequest.m in Sources */,
 				9AACAE1B1A77DA27009E518F /* LEOWebDAVClient.m in Sources */,
+				9A4348BD1B202DB00041F572 /* InMemmoryCoreDataManager.m in Sources */,
 				9AB7D5FC1B0627A800A32FEC /* DeviceTableViewCell.m in Sources */,
 				9AACAE211A77DA27009E518F /* LEOWebDAVMoveRequest.m in Sources */,
 				9AACAE221A77DA27009E518F /* LEOWebDAVParser.m in Sources */,
