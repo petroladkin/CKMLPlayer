@@ -80,7 +80,6 @@
 - (void)setName:(NSString*)name isFolder:(BOOL)isFolder {
     self.name = name;
     self.lowercaseName = name.lowercaseString;
-    self.lowercaseNameFirstFolders = [NSString stringWithFormat:@"%@%@", (isFolder ? @" " : @""), self.lowercaseName];
 }
 
 

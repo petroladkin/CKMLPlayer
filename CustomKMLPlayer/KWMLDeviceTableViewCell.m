@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 PeLa. All rights reserved.
 //
 
-#import "DeviceTableViewCell.h"
+#import "KWMLDeviceTableViewCell.h"
 
 
-@interface DeviceTableViewCell ()
+@interface KWMLDeviceTableViewCell ()
 
 
 @property (weak, nonatomic) IBOutlet UILabel *deviceNameLabel;
@@ -22,7 +22,7 @@
 @end
 
 
-@implementation DeviceTableViewCell
+@implementation KWMLDeviceTableViewCell
 
 
 - (void)awakeFromNib {

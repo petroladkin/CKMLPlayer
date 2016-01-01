@@ -10,7 +10,7 @@
 #import "KWMLDeviceManager.h"
 
 
-@interface DeviceTableViewCell : UITableViewCell
+@interface KWMLDeviceTableViewCell : UITableViewCell
 
 
 - (void)update:(KWMLDeviceInfo*)deviceInfo;

@@ -2,7 +2,7 @@
 //  FileSystemItem.h
 //  CustomKMLPlayer
 //
-//  Created by Petro Ladkin on 04.06.15.
+//  Created by Petro Ladkin on 08.06.15.
 //  Copyright (c) 2015 PeLa. All rights reserved.
 //
 
@@ -26,6 +26,5 @@
 @property (nonatomic, retain) NSNumber * subFoldersCount;
 @property (nonatomic, retain) NSData * thumbnail;
 @property (nonatomic, retain) NSString * url;
-@property (nonatomic, retain) NSString * lowercaseNameFirstFolders;
 
 @end

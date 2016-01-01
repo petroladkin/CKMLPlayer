@@ -39,6 +39,55 @@
 }
 
 
+#pragma mark - public methods
+
+- (FileSystemItem*)createFileSystemItem {
+    return [NSEntityDescription insertNewObjectForEntityForName:@"FileSystemItem" inManagedObjectContext:self.managedObjectContext];
+}
+
+- (FileSystemItem*)fileSystemItemByRootPath:(NSString*)rootPath andName:(NSString*)name {
+    NSFetchRequest* request = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription* description = [NSEntityDescription entityForName:@"FileSystemItem" inManagedObjectContext:self.managedObjectContext];
+    
+    [request setEntity:description];
+    
+    NSString* predicateString = [NSString stringWithFormat:@"rootPath == '%@' AND name = '%@'", rootPath, name];
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:predicateString];
+    
+    [request setPredicate:predicate];
+    
+    return [[self.managedObjectContext executeFetchRequest:request error:nil] firstObject];
+}
+
+- (NSArray*)fileSystemItemsByRootPath:(NSString*)rootPath {
+    NSFetchRequest* request = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription* description = [NSEntityDescription entityForName:@"FileSystemItem" inManagedObjectContext:self.managedObjectContext];
+    
+    [request setEntity:description];
+    
+    NSString* predicateString = [NSString stringWithFormat:@"rootPath == '%@'", rootPath];
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:predicateString];
+    
+    [request setPredicate:predicate];
+    
+    return [self.managedObjectContext executeFetchRequest:request error:nil];
+}
+
+
+- (void)saveContext {
+    NSError *error = nil;
+    NSManagedObjectContext *managedContext = self.managedObjectContext;
+    if (managedContext != nil) {
+        if ([managedContext hasChanges] && ![managedContext save:&error]) {
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+    }
+}
+
+
 #pragma mark - Core Data stack
 
 - (NSManagedObjectContext*)managedObjectContext {
@@ -66,17 +115,6 @@
     NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"CustomKMLPlayer" withExtension:@"momd"];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     return _managedObjectModel;
-}
-
-- (void)saveContext {
-    NSError *error = nil;
-    NSManagedObjectContext *managedContext = self.managedObjectContext;
-    if (managedContext != nil) {
-        if ([managedContext hasChanges] && ![managedContext save:&error]) {
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
-        }
-    }
 }
 
 

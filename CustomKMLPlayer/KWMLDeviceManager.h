@@ -45,10 +45,10 @@ static NSString *const DeviceManagerDidUpdateDeviceInfo = @"DeviceManagerDidUpda
 + (KWMLDeviceManager*)sharedManager;
 
 
-@property (assign, nonatomic, readonly) NSArray* devices;
+@property (assign, nonatomic, readonly) KWMLDeviceInfo* device;
 
 
-- (void)updateDeviceList;
+- (void)updateDevice;
 
 - (void)startKeapAliveTimer;
 - (void)stopKeapAliveTimer;

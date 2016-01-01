@@ -53,18 +53,18 @@
             __block NSString* brootPath = rootPath;
             dispatch_async(dispatch_get_main_queue(), ^() {
                 for (WebDavItem* wbitem in bitems) {
-                    FileSystemItem* item = [NSEntityDescription insertNewObjectForEntityForName:@"FileSystemItem" inManagedObjectContext:[InMemmoryCoreDataManager sharedManager].managedObjectContext];
-                
-                    item.rootPath = brootPath;
-                    [item setName:wbitem.name];
-                    
-                    NSLog(@"%@  %@  %@", item.name, item.lowercaseName, item.lowercaseNameFirstFolders);
-                    
-                    item.url = wbitem.url;
-                    item.isFolder = wbitem.isFolder;
-                    item.createTime = wbitem.createDate;
-                    item.modifyTime = wbitem.modifyDate;
-                    item.llFileSize = wbitem.contentLength;
+//                    FileSystemItem* item = [NSEntityDescription insertNewObjectForEntityForName:@"FileSystemItem" inManagedObjectContext:[InMemmoryCoreDataManager sharedManager].managedObjectContext];
+//                
+//                    item.rootPath = brootPath;
+//                    [item setName:wbitem.name];
+//                    [item setName:fileName isFolder:item.isFolder];
+//
+//
+//                    item.url = wbitem.url;
+//                    item.isFolder = wbitem.isFolder;
+//                    item.createTime = wbitem.createDate;
+//                    item.modifyTime = wbitem.modifyDate;
+//                    item.llFileSize = wbitem.contentLength;
                 }
                 [[InMemmoryCoreDataManager sharedManager] saveContext];
             });

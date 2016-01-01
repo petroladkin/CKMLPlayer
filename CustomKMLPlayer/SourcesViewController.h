@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 
-@interface DevicesViewController : UIViewController
+@interface SourcesViewController : UIViewController
 
 @end

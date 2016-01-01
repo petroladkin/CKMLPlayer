@@ -117,6 +117,8 @@
     self.player = [[MPMoviePlayerController alloc] init];
     self.player.controlStyle = MPMovieControlStyleNone;
     
+//    [[MPVolumeView ] ];
+    
     int lwidth = self.view.frame.size.width;
     int lheight = self.view.frame.size.height;
     if (lheight > lwidth) {
@@ -165,11 +167,11 @@
     self.durationLabel.text = @"";
     [self disableButtons];
     
-    WebDavItem* wdi = [self.files objectAtIndex:self.currentFileIndex];
-    
-    self.navigationItem.title = wdi.name;
-    
-    self.player.contentURL = [NSURL URLWithString:[wdi.url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+//    WebDavItem* wdi = [self.files objectAtIndex:self.currentFileIndex];
+//    
+//    self.navigationItem.title = wdi.name;
+//    
+//    self.player.contentURL = [NSURL URLWithString:[wdi.url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     [self.player prepareToPlay];
 
     [self.player play];

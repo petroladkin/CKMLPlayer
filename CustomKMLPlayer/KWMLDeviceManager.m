@@ -80,9 +80,6 @@ const static int MaxNotReceiveCounter = 3;
 @property (assign, nonatomic) int notReceiveResponceCouter;
 //@property (strong, nonatomic) dispatch_queue_t queue;
 
-@property (strong, nonatomic) NSMutableArray* realDevices;
-@property (strong, nonatomic) NSMutableDictionary* devicesByKey;
-
 
 @end
 
@@ -105,8 +102,6 @@ const static int MaxNotReceiveCounter = 3;
 - (id)init {
     self = [super init];
     if (self != nil) {
-        self.realDevices = [NSMutableArray array];
-        self.devicesByKey = [NSMutableDictionary dictionary];
 //        self.queue = dispatch_queue_create("ua.com.pela.ckwmlplayer.asqueue", DISPATCH_QUEUE_CONCURRENT);
         [self start];
     }
@@ -117,11 +112,7 @@ const static int MaxNotReceiveCounter = 3;
     [self stop];
 }
 
-- (NSArray*)devices {
-    return self.realDevices;
-}
-
-- (void)updateDeviceList {
+- (void)updateDevice {
     [self updateTimer:nil];
 }
 
@@ -137,8 +128,7 @@ const static int MaxNotReceiveCounter = 3;
 - (void)updateTimer:(id)obj {
     ++self.notReceiveResponceCouter;
     if (self.notReceiveResponceCouter > MaxNotReceiveCounter) {
-        [self.realDevices removeAllObjects];
-        [self.devicesByKey removeAllObjects];
+        _device = nil;
         [[NSNotificationCenter defaultCenter] postNotificationName:DeviceManagerTimeoutUpdateDeviceList object:@"Timeout to receive device responce"];
     }
     [[NSNotificationCenter defaultCenter] postNotificationName:DeviceManagerWillUpdateDeviceList object:self];
@@ -226,15 +216,12 @@ const static int MaxNotReceiveCounter = 3;
         }
         NSString* info = [NSString stringWithFormat:@"%@ (%@)", deviceModel, deviceVersion];
         
-        KWMLDeviceInfo* di = [self.devicesByKey objectForKey:deviceIpAddress];
-        if (di != nil) {
-            [di setName:deviceName andInfo:info];
+        if (self.device != nil) {
+            [self.device setName:deviceName andInfo:info];
         } else {
-            di = [KWMLDeviceInfo deviceInfoWithIpAddress:deviceIpAddress name:deviceName andInfo:info];
-            [self.realDevices addObject:di];
-            [self.devicesByKey setObject:di forKey:deviceIpAddress];
+            _device = [KWMLDeviceInfo deviceInfoWithIpAddress:deviceIpAddress name:deviceName andInfo:info];
         }
-        [self getPortStatus:di];
+        [self getPortStatus:self.device];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:DeviceManagerDidUpdateDeviceList object:self];
     }

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface StorageTableViewCell : UITableViewCell
+@interface LocalStorageTableViewCell : UITableViewCell
 
 @end

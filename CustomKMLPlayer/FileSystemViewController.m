@@ -33,7 +33,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.fileSystem update:self.rootPath];
+//    [self.fileSystem update:self.rootPath];
     [self updateFetchedResultsController];
 }
 
@@ -42,13 +42,17 @@
     self.fileSystem = fileSystem;
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [self.fileSystem update:self.rootPath];
+}
+
 
 #pragma mark - help methods
 
 - (void)updateFetchedResultsController {
     NSString* filter = @"";
     FileSystemItemFilterType type = FileSystemItemFilterTypeAll;
-    BOOL isGroupFolder = NO;
+    BOOL isGroupFolder = YES;
     FileSystemFileSort sort = FileSystemFileSortNameAsc;
     
     self.fetchedResultsController = [self.fileSystem fileSystemFetchedResultsControllerByRootPath:self.rootPath filter:filter type:type andGroupFolder:isGroupFolder sortBy:sort];
@@ -90,12 +94,14 @@
     
     FileSystemItem* fsi = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    FileSystemViewController* fsvc = [self.storyboard instantiateViewControllerWithIdentifier:@"FileSystemViewController"];
-    
-    [fsvc setRootPath:[NSString stringWithFormat:@"%@%@/", self.rootPath, fsi.name] ofFileSystem:self.fileSystem];
-    
-    [self.navigationController pushViewController:fsvc animated:YES];
-
+    if (fsi.isFolder) {
+        FileSystemViewController* fsvc = [self.storyboard instantiateViewControllerWithIdentifier:@"FileSystemViewController"];
+        
+        [fsvc setRootPath:[NSString stringWithFormat:@"%@%@/", self.rootPath, fsi.name] ofFileSystem:self.fileSystem];
+        
+        [self.navigationController pushViewController:fsvc animated:YES];
+    } else {
+    }
 }
 
 

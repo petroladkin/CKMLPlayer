@@ -10,14 +10,20 @@
 
 
 @class NSManagedObjectContext;
+@class FileSystemItem;
 
 
 @interface InMemmoryCoreDataManager : NSObject
 
 
+@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
+
 + (InMemmoryCoreDataManager*)sharedManager;
 
-@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+- (FileSystemItem*)createFileSystemItem;
+- (FileSystemItem*)fileSystemItemByRootPath:(NSString*)rootPath andName:(NSString*)name;
+- (NSArray*)fileSystemItemsByRootPath:(NSString*)rootPath;
 
 - (void)saveContext;
 

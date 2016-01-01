@@ -26,7 +26,7 @@
         <!--Device View Controller-->
         <scene sceneID="Tfe-g9-mLp">
             <objects>
-                <viewController id="Xqp-an-Yb2" userLabel="Device View Controller" customClass="DevicesViewController" sceneMemberID="viewController">
+                <viewController id="Xqp-an-Yb2" userLabel="Device View Controller" customClass="SourcesViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="s13-Ey-4Mm"/>
                         <viewControllerLayoutGuide type="bottom" id="OqW-0m-uGB"/>
@@ -39,7 +39,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellDevice" rowHeight="80" id="RcC-tc-vmZ" userLabel="KWML Device Table View Cell" customClass="DeviceTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellKWMLDevice" rowHeight="80" id="RcC-tc-vmZ" userLabel="KWML Device Table View Cell" customClass="KWMLDeviceTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RcC-tc-vmZ" id="d2X-7W-n8U">
@@ -181,7 +181,7 @@
                                             <outlet property="usbStatusLabel" destination="whr-7m-Ch0" id="Luc-G7-xav"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellDevice" rowHeight="80" id="40g-Bs-jcG" userLabel="Local Storage Table View Cell" customClass="StorageTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellLocalStorage" rowHeight="80" id="40g-Bs-jcG" userLabel="Local Storage Table View Cell" customClass="LocalStorageTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="40g-Bs-jcG" id="jrD-dA-kSC">
@@ -356,10 +356,10 @@
             </objects>
             <point key="canvasLocation" x="849" y="67"/>
         </scene>
-        <!--Player View Controller-->
+        <!--View Controller-->
         <scene sceneID="HEV-m6-2DF">
             <objects>
-                <viewController storyboardIdentifier="PlayerViewController" id="psx-Nk-AeL" customClass="PlayerViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlayerViewController" id="psx-Nk-AeL" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pCH-e7-kae"/>
                         <viewControllerLayoutGuide type="bottom" id="05k-Zt-bhR"/>

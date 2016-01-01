@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 PeLa. All rights reserved.
 //
 
-#import "StorageTableViewCell.h"
+#import "LocalStorageTableViewCell.h"
 
 
-@interface StorageTableViewCell ()
+@interface LocalStorageTableViewCell ()
 
 
 @property (weak, nonatomic) IBOutlet UILabel *deviceNameLabel;
@@ -18,7 +18,7 @@
 @end
 
 
-@implementation StorageTableViewCell
+@implementation LocalStorageTableViewCell
 
 
 - (void)awakeFromNib {
