@@ -465,10 +465,11 @@
 				TargetAttributes = {
 					9AA96F981A728DDD005B90E1 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = 444PP79Q49;
+						DevelopmentTeam = 6K7AEA2S7D;
 					};
 					9AA96FB41A728DDD005B90E1 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 6K7AEA2S7D;
 						TestTargetID = 9AA96F981A728DDD005B90E1;
 					};
 				};
@@ -478,6 +479,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -671,6 +673,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 6K7AEA2S7D;
 				INFOPLIST_FILE = CustomKMLPlayer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -684,6 +687,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 6K7AEA2S7D;
 				INFOPLIST_FILE = CustomKMLPlayer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -696,6 +700,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 6K7AEA2S7D;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -715,6 +720,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 6K7AEA2S7D;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
